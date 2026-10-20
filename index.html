@@ -41,13 +41,17 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
 .pill.xpp{background:#eeeaff;color:#4b33c2}
 
 /* bottom nav */
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;display:flex;gap:8px;
-  padding:8px 14px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);z-index:6}
-.nav button{flex:1;border:0;background:transparent;font-weight:800;font-size:.95rem;color:var(--muted);padding:11px;border-radius:14px}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;display:flex;gap:4px;
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);z-index:6}
+.nav button{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:transparent;font-weight:800;font-size:.8rem;color:var(--muted);padding:7px 4px;border-radius:14px}
+.nav button i{font-style:normal;font-size:1.55rem;line-height:1.1;transition:transform .15s}
 .nav button.on{background:#efeaff;color:var(--violet)}
+.nav button.on i{transform:scale(1.12)}
+.nav button.has::after{content:"";position:absolute;top:5px;left:calc(50% + 10px);width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 2px #fff;animation:ping 1.4s ease-in-out infinite}
+@keyframes ping{50%{transform:scale(1.25)}}
 
 /* map */
-.map{background:linear-gradient(180deg,var(--sea1),var(--sea2));padding-bottom:84px;overflow:hidden}
+.map{background:linear-gradient(180deg,var(--sea1),var(--sea2));padding-bottom:160px;overflow:hidden}
 .map svg{display:block;width:100%;height:auto}
 .node{cursor:pointer}
 .pulse{animation:pulse 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
@@ -192,9 +196,6 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
 .hero::after{content:"⚡";position:absolute;right:-14px;bottom:-30px;font-size:9rem;opacity:.08;transform:rotate(12deg);pointer-events:none}
 .hero h1{font-size:2.1rem;line-height:1.1}
 .hero p{margin:6px 0 14px;font-weight:700;opacity:.8;line-height:1.4;max-width:22em}
-.lineup{display:flex;align-items:center;margin-bottom:16px}
-.lineup svg{width:46px;height:46px;margin-right:-12px;filter:drop-shadow(0 3px 0 rgba(0,0,0,.25))}
-.lineup span{margin-left:22px;font-weight:800;font-size:.9rem;background:rgba(255,255,255,.12);padding:5px 11px;border-radius:999px}
 .sound{position:absolute;top:16px;right:16px;z-index:1;border:0;width:40px;height:40px;border-radius:12px;font-size:1.1rem;background:rgba(255,255,255,.12);color:#fff}
 .seg{display:flex;background:rgba(255,255,255,.1);border-radius:14px;padding:4px;position:relative;z-index:1}
 .seg button{flex:1;border:0;background:transparent;padding:10px;border-radius:10px;font-weight:800;color:rgba(255,255,255,.75)}
@@ -303,6 +304,81 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
 .review{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .review span{background:#fff;border-radius:12px;padding:6px 10px;font-weight:800;box-shadow:0 3px 0 var(--line)}
 
+/* engagement: map button, quick race, league, goals, me */
+.cta{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));z-index:4;display:flex;align-items:center;gap:12px;
+  max-width:calc(100% - 32px);border:0;border-radius:20px;padding:10px 20px 10px 10px;text-align:left;color:#fff;background:var(--green);
+  font-family:Fredoka;font-weight:600;font-size:1.15rem;box-shadow:0 5px 0 var(--green-d),0 12px 24px rgba(20,40,90,.25);animation:nudge 2.6s ease-in-out infinite}
+.cta:active{animation:none;transform:translateX(-50%) translateY(3px);box-shadow:0 2px 0 var(--green-d)}
+.cta > span:first-child,.quick > span:first-child{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:1rem;flex:none}
+.cta > span:last-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cta small,.quick small{display:block;font-family:Nunito;font-weight:800;font-size:.78rem;opacity:.9}
+@keyframes nudge{0%,82%,100%{transform:translateX(-50%)}90%{transform:translateX(-50%) translateY(-6px)}}
+.league{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.shield{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:var(--lc);box-shadow:0 3px 0 rgba(0,0,0,.25);flex:none}
+.ltxt{flex:1;min-width:0}
+.ltxt b{display:block;font-family:Fredoka;font-weight:600;font-size:1.08rem}
+.lbar{display:block;height:8px;border-radius:8px;background:rgba(255,255,255,.15);overflow:hidden;margin:5px 0 3px}
+.lbar i{display:block;height:100%;border-radius:8px}
+.ltxt small{font-weight:800;font-size:.8rem;opacity:.8}
+.quick{position:relative;z-index:1;display:flex;align-items:center;gap:12px;width:100%;border:0;border-radius:18px;padding:12px 14px;margin-bottom:14px;text-align:left;color:#fff;
+  background:var(--green);font-family:Fredoka;font-weight:600;font-size:1.35rem;box-shadow:0 5px 0 var(--green-d)}
+.quick:active{transform:translateY(3px);box-shadow:0 2px 0 var(--green-d)}
+.pill.trophy{background:#fff4d6;color:#7a5000}
+.pill.lose{background:#ffe1dd;color:#b3261e}
+.news{display:flex;flex-direction:column;gap:8px;width:100%;max-width:420px}
+.news span{background:#fff;border-radius:14px;padding:11px 14px;font-weight:800;text-align:left;box-shadow:0 3px 0 var(--line);animation:slidein .4s backwards}
+.night .news span{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+@keyframes slidein{from{transform:translateY(12px);opacity:0}}
+
+.streakcard{display:flex;align-items:center;gap:14px;border-radius:22px;padding:16px;color:#fff;background:linear-gradient(135deg,#ff8a3d,#ff4f6d);box-shadow:0 5px 0 #c53a4f}
+.streakcard.cold{background:linear-gradient(135deg,#9aa3c4,#6c7499);box-shadow:0 5px 0 #4f5677}
+.streakcard .flame{font-size:3rem;line-height:1;flex:none}
+.streakcard b{display:block;font-family:Fredoka;font-weight:600;font-size:1.5rem}
+.streakcard small{display:block;font-weight:800;opacity:.95;line-height:1.35}
+.week{display:flex;gap:6px;margin-top:8px}
+.week i{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-style:normal;font-size:.72rem}
+.week i.on{background:#fff}
+.h2row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:22px 0 10px}
+.h2row h2{margin:0}
+.h2row small{font-weight:800;color:var(--muted);font-size:.82rem}
+.quests{display:flex;flex-direction:column;gap:10px}
+.quest{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:12px;box-shadow:0 4px 0 var(--line)}
+.quest .qi{width:46px;height:46px;border-radius:14px;background:#f2f0fc;display:grid;place-items:center;font-size:1.5rem;flex:none}
+.quest .qb{flex:1;min-width:0}
+.quest b{display:block;font-size:.98rem;line-height:1.25}
+.qbar{display:block;height:10px;border-radius:9px;background:#ebe8fb;overflow:hidden;margin:6px 0 3px}
+.qbar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#7b5cff,#5ec8f2)}
+.quest.done .qbar i{background:var(--green)}
+.quest small{font-weight:800;color:var(--muted);font-size:.8rem}
+.qreward{flex:none;font-weight:800;font-size:.9rem;color:#7a5000;background:#fff4d6;padding:6px 10px;border-radius:12px}
+.quest .claim{width:auto;flex:none;padding:10px 14px;animation:ping 1.2s ease-in-out infinite}
+.qok{width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.quest.claimed{opacity:.65}
+.chestcard{display:flex;align-items:center;gap:12px;margin-top:12px;border-radius:20px;padding:14px;background:#fff;border:3px dashed #dcd8f2}
+.chestcard.ready{border:3px solid var(--gold);background:#fffaf0;box-shadow:0 4px 0 #f0d68a}
+.chestcard .chest{font-size:2.6rem;line-height:1;flex:none}
+.chestcard.ready .chest{animation:wiggle 1s ease-in-out infinite}
+.chestcard div{flex:1;min-width:0}
+.chestcard b{display:block;font-family:Fredoka;font-weight:600;font-size:1.15rem}
+.chestcard small{font-weight:800;color:var(--muted)}
+.chestcard .btn{width:auto;flex:none;padding:10px 16px}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
+.bigchest{font-size:5.5rem;line-height:1;margin:14px 0 22px;animation:wiggle .3s ease-in-out infinite}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bdg{display:flex;flex-direction:column;align-items:center;gap:3px;background:#fff;border-radius:18px;padding:12px 6px;text-align:center;box-shadow:0 4px 0 var(--line)}
+.bdg span{font-size:2rem;line-height:1.1;filter:grayscale(1);opacity:.35}
+.bdg b{font-size:.82rem;line-height:1.2;color:var(--muted)}
+.bdg small{font-size:.7rem;line-height:1.25;color:var(--muted);font-weight:700}
+.bdg.got{background:linear-gradient(#fff8e6,#fff);box-shadow:0 4px 0 #f0d68a}
+.bdg.got span{filter:none;opacity:1}
+.bdg.got b{color:var(--ink)}
+.mehead{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.mehead svg{width:96px;height:96px;flex:none}
+.mehead small{font-weight:800;color:var(--muted)}
+.seg.light{background:#fff;box-shadow:0 3px 0 var(--line);margin:4px 0 14px}
+.seg.light button{color:var(--muted)}
+.seg.light button.on{background:var(--violet);color:#fff;box-shadow:none}
+
 .toast{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-weight:800;z-index:40;max-width:90vw;text-align:center;animation:fade .2s}
 .cf{position:fixed;top:-16px;width:10px;height:14px;border-radius:3px;z-index:50;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
@@ -315,9 +391,10 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
   <header class="topbar" id="top"></header>
   <main id="view"></main>
   <nav class="nav" id="nav">
-    <button data-tab="map" class="on">🗺️ Map</button>
-    <button data-tab="arena">⚡ Arena</button>
-    <button data-tab="crew">🐾 Crew</button>
+    <button data-tab="map" class="on"><i>🗺️</i>Map</button>
+    <button data-tab="arena"><i>⚡</i>Arena</button>
+    <button data-tab="goals"><i>🎯</i>Goals</button>
+    <button data-tab="crew"><i>🐾</i>Me</button>
   </nav>
 </div>
 <div id="sheet"></div>
@@ -346,7 +423,17 @@ const CHARS = {
   fern: {name:'Fern',  price:260, color:'#5ccf6a', shape:'sprout', bio:'Grows smarter every day.'},
   coco: {name:'Coco',  price:350, color:'#ff6fa8', shape:'octo',   bio:'Eight arms, eight answers.'}
 };
-function charSVG(id, attrs=''){
+const HATS = {
+  cap:   {name:'Cap',        price:80,  svg:`<path d="M27 24Q28 4 50 4Q72 4 73 24Z" fill="#ff5b5b"/><path d="M64 21Q86 18 93 25Q78 29 62 25Z" fill="#d43d3d"/><circle cx="50" cy="5" r="3" fill="#d43d3d"/>`},
+  bow:   {name:'Bow',        price:90,  svg:`<path d="M50 14L34 4Q27 14 34 24Z M50 14L66 4Q73 14 66 24Z" fill="#ff5c8a"/><circle cx="50" cy="14" r="5" fill="#d94784"/>`},
+  shades:{name:'Shades',     price:120, svg:`<rect x="26" y="44" width="23" height="15" rx="7" fill="#23204a"/><rect x="51" y="44" width="23" height="15" rx="7" fill="#23204a"/><path d="M47 49H53" stroke="#23204a" stroke-width="3"/><path d="M30 48H37M55 48H62" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>`},
+  phones:{name:'Headphones', price:150, svg:`<path d="M17 52Q17 10 50 10Q83 10 83 52" fill="none" stroke="#3a3560" stroke-width="6" stroke-linecap="round"/><rect x="8" y="42" width="15" height="25" rx="7" fill="#4d8cff"/><rect x="77" y="42" width="15" height="25" rx="7" fill="#4d8cff"/>`},
+  party: {name:'Party hat',  price:180, svg:`<path d="M37 25L50 2L63 25Z" fill="#2ec4b6"/><circle cx="46" cy="19" r="2.4" fill="#fff"/><circle cx="54" cy="13" r="2.2" fill="#ffe066"/><circle cx="51" cy="21" r="2" fill="#ff6fa8"/><circle cx="50" cy="3" r="4" fill="#ff6fa8"/>`},
+  wizard:{name:'Wizard hat', price:240, svg:`<path d="M28 24Q44 14 56 1Q62 14 72 24Z" fill="#5a3fd6"/><path d="M19 25Q50 15 81 25Q50 33 19 25Z" fill="#4b30cc"/><path d="M50 9l2 4.5 4.5.5-3.5 3 1 4.5-4-2.5-4 2.5 1-4.5-3.5-3 4.5-.5Z" fill="#ffe066"/>`},
+  crown: {name:'Crown',      price:320, svg:`<path d="M30 25L31 6L41 15L50 3L59 15L69 6L70 25Z" fill="#ffc83d" stroke="#d9a10f" stroke-width="2" stroke-linejoin="round"/><circle cx="50" cy="18" r="3" fill="#ff5c8a"/><circle cx="38" cy="20" r="2" fill="#4d8cff"/><circle cx="62" cy="20" r="2" fill="#2fc16a"/>`}
+};
+const meSVG = (attrs='') => charSVG(S.char, attrs, S.hat);
+function charSVG(id, attrs='', hat=null){
   const c = CHARS[id] || CHARS.pip, k = c.color;
   const blob = 'M50 14C76 14 90 36 90 60C90 82 72 92 50 92C28 92 10 82 10 60C10 36 24 14 50 14Z';
   let back = '', body = `<path d="${blob}" fill="${k}"/>`, front = '';
@@ -365,7 +452,7 @@ function charSVG(id, attrs=''){
     <path d="M43 ${y+17}Q50 ${y+24} 57 ${y+17}" stroke="#23204a" stroke-width="3.2" fill="none" stroke-linecap="round"/>`;
   const shine = `<ellipse cx="33" cy="30" rx="10" ry="5.5" fill="#fff" opacity=".28" transform="rotate(-28 33 30)"/>`;
   const shadow = `<ellipse cx="50" cy="96" rx="28" ry="3.5" fill="#000" opacity=".13"/>`;
-  return `<svg viewBox="0 0 100 100" ${attrs}>${shadow}${back}${body}${shine}${face}${front}</svg>`;
+  return `<svg viewBox="0 0 100 100" ${attrs}>${shadow}${back}${body}${shine}${face}${front}${HATS[hat] ? HATS[hat].svg : ''}</svg>`;
 }
 function monsterSVG(color, attrs=''){
   return `<svg viewBox="0 0 100 100" ${attrs}>
@@ -434,7 +521,8 @@ const TYPE = {
 /* ================= save ================= */
 const KEY = '100math-v2';
 const defaults = () => ({char:'pip', owned:['pip'], coins:0, xp:0, level:1, done:{}, seen:false,
-  best:{}, rate:{}, daily:{}, games:0, dur:60, sound:true, dayStreak:0, lastDay:''});
+  best:{}, rate:{}, daily:{}, games:0, dur:60, sound:true, dayStreak:0, lastDay:'',
+  hat:null, hats:[], stats:{}, badges:{}, quests:null, trophies:0});
 let S = (()=>{ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d) return Object.assign(defaults(), d); }catch(e){} return defaults(); })();
 const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
 const need = l => 80 + l*40;
@@ -445,6 +533,9 @@ const dayStreak = () => [dayKey(), dayKey(Date.now()-864e5)].includes(S.lastDay)
 function markDay(){
   const today = dayKey(); if(S.lastDay === today) return;
   S.dayStreak = S.lastDay === dayKey(Date.now()-864e5) ? S.dayStreak + 1 : 1; S.lastDay = today;
+  const bonus = Math.min(50, S.dayStreak*10);
+  S.coins += bonus; news(S.dayStreak > 1 ? `🔥 ${S.dayStreak} days in a row! +${bonus} bonus coins` : `🔥 Streak started! +${bonus} bonus coins`);
+  checkBadges();
 }
 
 function award(n, stars){
@@ -453,8 +544,75 @@ function award(n, stars){
   const coins = first ? base + stars*5 : Math.round(base/4) + stars;
   const xp = first ? 30 + stars*10 : 10 + stars*2;
   if(stars > (S.done[n.id]||0)) S.done[n.id] = stars;
+  track('step'); track('stars', stars); if(n.type === 'boss') track('boss');
   return grant(coins, xp);
 }
+
+/* ================= quests, badges, leagues ================= */
+const QUESTS = [
+  {id:'c30',  m:'correct', n:30, coins:20, icon:'✅', text:'Get 30 answers right'},
+  {id:'c60',  m:'correct', n:60, coins:35, icon:'💯', text:'Get 60 answers right'},
+  {id:'ar2',  m:'arena',   n:2,  coins:20, icon:'⚡', text:'Play 2 Arena races'},
+  {id:'pod',  m:'podium',  n:1,  coins:25, icon:'🥉', text:'Finish a race in the top 3'},
+  {id:'win',  m:'win',     n:1,  coins:30, icon:'🏆', text:'Win an Arena race'},
+  {id:'st8',  m:'streak',  n:8,  coins:25, icon:'🔥', text:'Get 8 right in a row'},
+  {id:'step', m:'step',    n:1,  coins:20, icon:'🗺️', text:'Finish a step on the map'},
+  {id:'star', m:'stars',   n:3,  coins:25, icon:'⭐', text:'Earn 3 stars on the map'},
+  {id:'fast', m:'fast',    n:10, coins:30, icon:'💨', text:'Answer 10 Arena questions in under 3 seconds'},
+  {id:'day',  m:'daily',   n:1,  coins:20, icon:'📅', text:'Play the daily challenge'}
+];
+const QBY = Object.fromEntries(QUESTS.map(q => [q.id, q]));
+const MAXM = new Set(['streak']); // metrics that keep the best value instead of adding up
+const st = m => S.stats[m] || 0;
+const BADGES = [
+  {id:'first', icon:'👣', name:'First steps',   desc:'Finish your first map step',  ok:()=>st('step') >= 1},
+  {id:'c100',  icon:'💯', name:'Hundred club',  desc:'Get 100 answers right',       ok:()=>st('correct') >= 100},
+  {id:'c500',  icon:'🧠', name:'Math machine',  desc:'Get 500 answers right',       ok:()=>st('correct') >= 500},
+  {id:'s10',   icon:'🔥', name:'On fire',       desc:'Get 10 right in a row',       ok:()=>st('streak') >= 10},
+  {id:'s25',   icon:'☄️', name:'Unstoppable',   desc:'Get 25 right in a row',       ok:()=>st('streak') >= 25},
+  {id:'fast',  icon:'💨', name:'Lightning',     desc:'Answer 50 Arena questions in under 3 seconds', ok:()=>st('fast') >= 50},
+  {id:'w1',    icon:'🏆', name:'Champion',      desc:'Win an Arena race',           ok:()=>st('win') >= 1},
+  {id:'w10',   icon:'👑', name:'Arena legend',  desc:'Win 10 Arena races',          ok:()=>st('win') >= 10},
+  {id:'gold',  icon:'🥇', name:'Gold league',   desc:'Reach the Gold league',       ok:()=>S.trophies >= 250},
+  {id:'boss',  icon:'👾', name:'Boss buster',   desc:'Beat a boss',                 ok:()=>st('boss') >= 1},
+  {id:'all',   icon:'🏝️', name:'Island hopper', desc:'Beat every boss',             ok:()=>WORLDS.every(w => S.done[`${w.id}-5`])},
+  {id:'d3',    icon:'📆', name:'3-day streak',  desc:'Play 3 days in a row',        ok:()=>S.dayStreak >= 3},
+  {id:'d7',    icon:'🗓️', name:'Week warrior',  desc:'Play 7 days in a row',        ok:()=>S.dayStreak >= 7},
+  {id:'q10',   icon:'🎯', name:'Quest hero',    desc:'Claim 10 daily quests',       ok:()=>st('quests') >= 10},
+  {id:'crew',  icon:'🐾', name:'Best friends',  desc:'Have 3 buddies in your crew', ok:()=>S.owned.length >= 3},
+  {id:'style', icon:'🎩', name:'Looking good',  desc:'Own 3 hats',                  ok:()=>S.hats.length >= 3}
+];
+const LEAGUES = [['Bronze',0,'#d48552'],['Silver',100,'#8f9bbd'],['Gold',250,'#e0a010'],['Emerald',450,'#22a855'],['Diamond',700,'#3aa6e6'],['Champion',1000,'#d94784']];
+const league = (t = S.trophies) => LEAGUES.reduce((i, l, j) => t >= l[1] ? j : i, 0);
+const TROPHY = [30, 20, 12, 4, -4, -8];
+
+// messages earned mid-game wait for the results screen; otherwise they show as toasts
+const NEWS = [];
+function news(msg){ if(G) NEWS.push(msg); else toast(msg); }
+function quests(){
+  const day = dayKey();
+  if(!S.quests || S.quests.day !== day){
+    RNG = seeded(hash('quests' + day));
+    const ids = [], seen = new Set();
+    shuffle(QUESTS.slice()).forEach(q => { if(ids.length < 3 && !seen.has(q.m)){ ids.push(q.id); seen.add(q.m); } });
+    RNG = Math.random;
+    S.quests = {day, ids, prog:{}, claimed:[], told:[], chest:false};
+  }
+  return S.quests;
+}
+const questDone = id => (quests().prog[QBY[id].m] || 0) >= QBY[id].n;
+const canClaim = () => { const q = quests(); return q.ids.some(id => questDone(id) && !q.claimed.includes(id)) || (q.claimed.length === 3 && !q.chest); };
+function track(m, n=1){
+  const q = quests();
+  [q.prog, S.stats].forEach(o => o[m] = MAXM.has(m) ? Math.max(o[m] || 0, n) : (o[m] || 0) + n);
+  q.ids.forEach(id => { if(QBY[id].m === m && questDone(id) && !q.told.includes(id)){ q.told.push(id); news(`🎯 Quest done: ${QBY[id].text}`); } });
+  checkBadges(); save();
+}
+function hit(streak){ track('correct'); track('streak', streak); }
+function checkBadges(){
+  BADGES.forEach(b => { if(!S.badges[b.id] && b.ok()){ S.badges[b.id] = dayKey(); news(`🏅 New badge: ${b.name}`); } });
+}
+const newsHTML = () => NEWS.length ? `<div class="news">${NEWS.splice(0).map((m, i)=>`<span style="animation-delay:${.3 + i*.15}s">${m}</span>`).join('')}</div>` : '';
 function grant(coins, xp){
   S.coins += coins; S.xp += xp; markDay();
   let up = false;
@@ -530,19 +688,23 @@ function model(p){
 
 /* ================= chrome ================= */
 let tab = 'map', G = null;
-function setChrome(on){ $('#top').hidden = !on; $('#nav').hidden = !on; }
+function setChrome(on){ $('#top').hidden = !on; $('#nav').hidden = !on; if(on) NEWS.splice(0).forEach(toast); }
 function renderTop(){
   const n = need(S.level);
   $('#top').innerHTML = `
-    <div class="avatar">${charSVG(S.char)}</div>
+    <div class="avatar">${meSVG()}</div>
     <div class="lvl"><b>Level ${S.level}</b><div class="xp"><i style="width:${S.xp/n*100}%"></i></div></div>
     ${dayStreak() ? `<span class="pill fire" title="Days in a row">🔥 ${dayStreak()}</span>` : ''}
     <span class="pill star">⭐ ${totalStars()}</span>
     <span class="pill">🪙 ${S.coins}</span>`;
 }
-function toast(msg){
-  const t = $('#toast'); t.textContent = msg; t.hidden = false;
-  clearTimeout(toast.t); toast.t = setTimeout(()=>t.hidden = true, 1800);
+const TQ = [];
+function toast(msg){ TQ.push(msg); if(!toast.on) nextToast(); }
+function nextToast(){
+  const t = $('#toast'), m = TQ.shift();
+  toast.on = !!m; t.hidden = !m; if(!m) return;
+  t.textContent = m; t.style.animation = 'none'; void t.offsetWidth; t.style.animation = '';
+  setTimeout(nextToast, 1900);
 }
 function confetti(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -588,13 +750,14 @@ function renderMap(scroll=true){
       <text y="${big?12:10}" text-anchor="middle" font-size="${big?32:27}" ${open?'':'opacity=".7"'}>${open ? TYPE[n.type].icon : '🔒'}</text>
       ${stars ? `<text y="${R+24}" text-anchor="middle" font-size="17" font-weight="800" fill="#ffc83d" stroke="#7a5000" stroke-width=".8">${'★'.repeat(stars)}${'☆'.repeat(3-stars)}</text>`
         : isCur ? `<rect x="-26" y="${R+10}" width="52" height="24" rx="12" fill="#fff"/><text y="${R+27}" text-anchor="middle" font-family="Fredoka" font-weight="600" font-size="14" fill="${n.w.dark}">Go!</text>` : ''}
-      ${isCur ? `<g class="bob">${charSVG(S.char, `x="-28" y="${-R-58}" width="56" height="56"`)}</g>` : ''}
+      ${isCur ? `<g class="bob">${meSVG(`x="-28" y="${-R-58}" width="56" height="56"`)}</g>` : ''}
     </g>`;
   }).join('');
   view.innerHTML = `<div class="map"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Level map">
     ${waves}${islands}${decor}
     <path d="${path}" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 17" opacity=".95"/>
-    ${nodesSvg}</svg></div>`;
+    ${nodesSvg}</svg>
+    <button class="cta" data-node="${NODES[cur].id}"><span>▶</span><span><small>${S.done[NODES[cur].id] ? 'Play again' : 'Play next'}</small>${NODES[cur].type === 'boss' ? `Beat ${NODES[cur].w.boss}` : NODES[cur].title}</span></button></div>`;
   if(scroll) requestAnimationFrame(()=>{
     const el = view.querySelector(`[data-node="${NODES[cur].id}"]`);
     if(el){ const b = el.getBoundingClientRect(); window.scrollTo({top: b.top + window.scrollY - window.innerHeight/2}); }
@@ -623,7 +786,10 @@ function welcome(){
     <button class="btn green" data-act="welcomed">Let's go</button></div></div>`;
 }
 const closeSheet = () => $('#sheet').innerHTML = '';
-function markTab(){ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on', b.dataset.tab===tab)); }
+function markTab(){
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on', b.dataset.tab===tab));
+  $('[data-tab="goals"]').classList.toggle('has', canClaim());
+}
 
 function startNode(id){
   closeSheet(); stop();
@@ -640,11 +806,12 @@ function renderResult(o){
   stop(); setChrome(false); window.scrollTo(0,0);
   const res = o.res;
   view.innerHTML = `<div class="result">
-    ${o.win ? charSVG(S.char,'class="big bob"') : monsterSVG(o.monster || '#888','class="big"')}
+    ${o.win ? meSVG('class="big bob"') : monsterSVG(o.monster || '#888','class="big"')}
     <h1>${o.title}</h1><p class="muted">${o.sub}</p>
     ${o.win ? `<div class="stars">${[1,2,3].map(i=>`<span class="${i<=o.stars?'on':''}" style="animation-delay:${i*.18}s">★</span>`).join('')}</div>
       <div class="rewards"><span class="pill">🪙 +${res.coins}</span><span class="pill xpp">⚡ +${res.xp} XP</span></div>
       ${res.up ? `<div class="lvlup">Level up! You're level ${S.level}</div>` : ''}` : ''}
+    ${newsHTML()}
     <div class="stack" style="margin-top:10px">
       ${o.win ? '' : `<button class="btn coral" data-act="start" data-v="${o.id}">Try again</button>`}
       <button class="btn ${o.win?'green':'ghost'}" data-act="tomap">${o.win ? 'Continue' : 'Back to map'}</button>
@@ -657,7 +824,7 @@ function startLesson(n){
   G = {n, kind:'lesson', i:0, total:8, correct:0, alive:true};
   const p = {a:n.ex[0], b:n.ex[1], op:n.spec.op}; p.ans = calc(p);
   view.innerHTML = `<div class="play">${playTop(0)}
-    <div class="coach">${charSVG(S.char)}<div class="bubble">Let's learn something new!</div></div>
+    <div class="coach">${meSVG()}<div class="bubble">Let's learn something new!</div></div>
     <div class="teach"><span class="tag" style="background:${n.w.node}">${n.w.name}</span>
       <h2>${n.title}</h2><p>${n.teach}</p>
       <div class="example"><div class="qtext">${p.a} ${SYM[p.op]} ${p.b} = ${p.ans}</div><div class="model">${model(p)}</div></div>
@@ -668,7 +835,7 @@ function lessonQ(){
   G.q = problem(G.n.spec); G.answered = false;
   const m = model(G.q);
   view.innerHTML = `<div class="play">${playTop(G.i/G.total*100)}
-    <div class="coach">${charSVG(S.char)}<div class="bubble" id="bub">${pick(['What do you get?','You can do this!','Take your time.','Show me what you know!'])}</div></div>
+    <div class="coach">${meSVG()}<div class="bubble" id="bub">${pick(['What do you get?','You can do this!','Take your time.','Show me what you know!'])}</div></div>
     <div class="qcard"><div class="qtext">${qtext(G.q)}</div>${m ? `<div class="model">${m}</div>` : ''}</div>
     <div class="answers">${choices(G.q.ans).map(c=>`<button class="ans" data-act="ans" data-v="${c}">${c}</button>`).join('')}</div>
     <div id="fb"></div></div>`;
@@ -685,7 +852,8 @@ function answerLesson(btn){
   if(G.answered) return; G.answered = true;
   const ok = +btn.dataset.v === G.q.ans;
   markAnswers(btn, G.q.ans);
-  G.i++; if(ok) G.correct++;
+  G.i++; G.streak = ok ? (G.streak || 0) + 1 : 0;
+  if(ok){ G.correct++; hit(G.streak); }
   setProg(G.i/G.total*100);
   $('#bub').textContent = ok ? pick(PRAISE) : `It's ${G.q.ans}. You'll get the next one!`;
   if(ok){ const tok = G; setTimeout(()=>{ if(G===tok) lessonNext(); }, 750); }
@@ -724,13 +892,14 @@ function balloonLoop(t){
   const dt = Math.min(.05, (t - G.last)/1000); G.last = t;
   let escaped = false;
   G.balloons.forEach(b=>{ if(b.gone) return; b.y -= b.sp*dt; b.el.style.transform = `translateY(${b.y}px)`; if(b.y < -140 && b.v === G.q.ans) escaped = true; });
-  if(escaped){ G.miss++; $('#miss').textContent = `Misses ${G.miss}`; toast(`Too slow! It was ${G.q.ans}.`); newBalloons(); }
+  if(escaped){ G.miss++; G.streak = 0; $('#miss').textContent = `Misses ${G.miss}`; toast(`Too slow! It was ${G.q.ans}.`); newBalloons(); }
   requestAnimationFrame(balloonLoop);
 }
 function popBalloon(el){
   const b = G.balloons.find(x=>x.el===el); if(!b || b.gone) return;
   if(b.v === G.q.ans){
     b.gone = true; el.classList.add('pop'); G.popped++; setProg(G.popped/G.target*100);
+    G.streak = (G.streak || 0) + 1; hit(G.streak);
     G.balloons.forEach(x=>{ x.gone = true; x.el.disabled = true; });
     const tok = G;
     if(G.popped >= G.target){
@@ -739,7 +908,7 @@ function popBalloon(el){
         renderResult({win:true, title:'All popped!', sub:`10 balloons popped with ${G.miss} ${G.miss===1?'miss':'misses'}.`, stars, res:award(G.n, stars), id:G.n.id}); }, 450);
     } else setTimeout(()=>{ if(G===tok) newBalloons(); }, 380);
   } else {
-    el.classList.add('bad'); el.disabled = true; G.miss++; $('#miss').textContent = `Misses ${G.miss}`;
+    el.classList.add('bad'); el.disabled = true; G.miss++; G.streak = 0; $('#miss').textContent = `Misses ${G.miss}`;
   }
 }
 
@@ -748,7 +917,7 @@ function startRace(n){
   G = {n, kind:'race', pos:0, goal:10, elapsed:0, time:55, mistakes:0, alive:true, lock:false};
   view.innerHTML = `<div class="play">${playTop(0)}
     <div class="track">
-      <div class="lane"><div class="finish"></div><span class="lanelabel">You</span><div class="racer" id="me">${charSVG(S.char)}</div></div>
+      <div class="lane"><div class="finish"></div><span class="lanelabel">You</span><div class="racer" id="me">${meSVG()}</div></div>
       <div class="lane"><div class="finish"></div><span class="lanelabel">Rival</span><div class="racer" id="rv">${monsterSVG(n.w.monster)}</div></div>
     </div>
     <div class="qcard slim"><div class="qtext md" id="rq"></div></div>
@@ -776,10 +945,11 @@ function answerRace(btn){
   const tok = G;
   if(ok){
     G.pos++; place('me', G.pos/G.goal); setProg(G.pos/G.goal*100);
+    G.streak = (G.streak || 0) + 1; hit(G.streak);
     if(G.pos >= G.goal){ G.alive = false; const stars = G.mistakes<=1 ? 3 : G.mistakes<=3 ? 2 : 1;
       setTimeout(()=>{ if(G===tok) renderResult({win:true, title:'You won the race!', sub:`Finished with ${G.mistakes} ${G.mistakes===1?'mistake':'mistakes'}.`, stars, res:award(G.n, stars), id:G.n.id}); }, 500); }
     else setTimeout(()=>{ if(G===tok && G.alive) raceQ(); }, 280);
-  } else { G.mistakes++; setTimeout(()=>{ if(G===tok && G.alive) raceQ(); }, 900); }
+  } else { G.mistakes++; G.streak = 0; setTimeout(()=>{ if(G===tok && G.alive) raceQ(); }, 900); }
 }
 
 /* ================= boss battle ================= */
@@ -790,7 +960,7 @@ function startBoss(n){
       <div class="bossrow"><span>${n.w.boss}</span><span id="hpn">${G.hp}/${G.max}</span></div>
       <div class="hp"><i id="hp" style="width:100%"></i></div>
       <div class="mon bob" id="mon">${monsterSVG(n.w.monster)}</div>
-      <div class="me">${charSVG(S.char)}<span class="hearts" id="hearts"></span></div>
+      <div class="me">${meSVG()}<span class="hearts" id="hearts"></span></div>
     </div>
     <div class="qtimer"><i id="qt"></i></div>
     <div class="qcard slim"><div class="qtext md" id="bq"></div></div>
@@ -815,7 +985,7 @@ function answerBoss(btn){
   const ok = +btn.dataset.v === G.q.ans;
   markAnswers(btn, G.q.ans);
   if(!ok) return bossHurt();
-  G.streak++;
+  G.streak++; hit(G.streak);
   const dmg = G.streak >= 3 ? 2 : 1;
   G.hp = Math.max(0, G.hp - dmg);
   $('#hp').style.width = (G.hp/G.max*100) + '%'; $('#hpn').textContent = `${G.hp}/${G.max}`;
@@ -869,13 +1039,18 @@ function renderArena(){
   stop(); tab = 'arena'; setChrome(true); renderTop(); markTab(); window.scrollTo(0,0);
   const today = S.daily[dayKey()], midnight = new Date().setHours(24,0,0,0), ms = midnight - Date.now();
   const resets = `New challenge in ${Math.floor(ms/36e5)}h ${Math.floor(ms%36e5/6e4)}m`;
-  const rivals = Object.keys(CHARS).filter(id => id !== S.char).slice(0, 4);
+  const li = league(), [lname, , lcol] = LEAGUES[li], nxt = LEAGUES[li + 1];
+  const lpct = nxt ? (S.trophies - LEAGUES[li][1]) / (nxt[1] - LEAGUES[li][1]) * 100 : 100;
+  const qs = quickSkill();
   view.innerHTML = `<section class="page">
     <div class="hero">
       <button class="sound" data-act="sound" aria-label="${S.sound ? 'Turn sound off' : 'Turn sound on'}">${S.sound ? '🔊' : '🔇'}</button>
       <h1>Speed Arena</h1>
       <p>Race 5 players. Fast answers and streaks score big.</p>
-      <div class="lineup">${[S.char, ...rivals].map(id => charSVG(id)).join('')}<span>6 players</span></div>
+      <div class="league"><span class="shield" style="--lc:${lcol}">🛡️</span><span class="ltxt"><b>${lname} league</b>
+        <span class="lbar"><i style="width:${lpct}%;background:${lcol}"></i></span>
+        <small>🏆 ${S.trophies}${nxt ? ` · ${nxt[1] - S.trophies} to ${nxt[0]}` : ' · Top league!'}</small></span></div>
+      <button class="quick" data-act="arena-go" data-v="${qs}"><span>▶</span><span>Quick race<small>${SKILLS[qs].name}</small></span></button>
       <div class="seg" role="group" aria-label="Round length">${[60,120].map(d=>`<button data-act="dur" data-v="${d}" class="${S.dur===d?'on':''}">⏱ ${d/60} min</button>`).join('')}</div>
     </div>
     <button class="daily ${today != null ? 'done' : ''}" data-act="daily"><span class="big">📅</span>
@@ -887,14 +1062,16 @@ function renderArena(){
     }).join('')}</div></section>`;
 }
 
+// match the quick race to wherever the player is on the map
+const quickSkill = () => { const i = currentIdx(); return i < 2 ? 'add10' : ['add20','sub20','mul','div'][NODES[i].wi]; };
 function startArena(skillId, daily=false){
   stop(); window.scrollTo(0,0); setChrome(false);
   const skill = SKILLS[skillId], dur = daily ? 60 : S.dur;
   // rivals are paced around this player's own speed on the skill, so races stay close
   const rate = S.rate[skillId] || .28, ids = Object.keys(CHARS), factors = shuffle([.65,.8,.95,1.1,1.3]);
-  const players = [{you:true, name:'You', char:S.char, score:0}].concat(shuffle(BOTS.slice()).slice(0,5).map((name, i)=>{
+  const players = [{you:true, name:'You', char:S.char, hat:S.hat, score:0}].concat(shuffle(BOTS.slice()).slice(0,5).map((name, i)=>{
     const gap = Math.max(1.1, 1/(rate*factors[i])), first = gap*(.6 + Math.random()*.8) + .4;
-    return {name, char:pick(ids), score:0, streak:0, gap, acc:.8 + Math.random()*.17, cur:first, next:first};
+    return {name, char:pick(ids), hat: Math.random() < .45 ? pick(Object.keys(HATS)) : null, score:0, streak:0, gap, acc:.8 + Math.random()*.17, cur:first, next:first};
   }));
   G = {kind:'arena', alive:true, phase:'lobby', skillId, skill, daily, dur, left:dur, players, me:players[0],
     score:0, correct:0, wrong:0, streak:0, bestStreak:0, typed:'', misses:[], rng: daily ? seeded(hash('daily' + dayKey())) : null};
@@ -902,7 +1079,7 @@ function startArena(skillId, daily=false){
     <p id="lob">Finding players…</p><div class="joined" id="joined"></div><div id="cd"></div></div>`;
   const tok = G;
   players.forEach((p, i)=>setTimeout(()=>{ if(G !== tok) return;
-    $('#joined').insertAdjacentHTML('beforeend', `<div class="pl ${p.you?'you':''}">${charSVG(p.char)}${p.name}</div>`); beep(520 + i*60, .06); }, i*380));
+    $('#joined').insertAdjacentHTML('beforeend', `<div class="pl ${p.you?'you':''}">${charSVG(p.char, '', p.hat)}${p.name}</div>`); beep(520 + i*60, .06); }, i*380));
   setTimeout(()=>{ if(G === tok) countdown(3); }, players.length*380 + 400);
 }
 function countdown(n){
@@ -918,7 +1095,7 @@ function arenaPlay(){
     <div class="hud"><button class="x" data-act="arena" aria-label="Leave">✕</button>
       <div class="hudscore"><b id="sc">0</b><span>points</span></div>
       <div class="ring" id="ring"><svg viewBox="0 0 44 44"><circle class="trk" cx="22" cy="22" r="19"/><circle id="tm" cx="22" cy="22" r="19"/></svg><span id="secs">${G.dur}</span></div></div>
-    <div class="board" id="board" style="--n:${G.players.length}">${G.players.map(p=>`<div class="lb ${p.you?'you':''}"><span class="rk"></span>${charSVG(p.char)}<span class="nm">${p.name}</span><span class="pt">0</span></div>`).join('')}</div>
+    <div class="board" id="board" style="--n:${G.players.length}">${G.players.map(p=>`<div class="lb ${p.you?'you':''}"><span class="rk"></span>${charSVG(p.char, '', p.hat)}<span class="nm">${p.name}</span><span class="pt">0</span></div>`).join('')}</div>
     <div class="qcard liveq" id="lqc"><span class="combo" id="combo" hidden></span><div class="qtext"><span id="lq"></span> <span class="box" id="typed"></span></div>
       <div class="hint" id="hint"></div><button class="skip" data-act="skip">Skip</button></div>
     <div class="pad">${[1,2,3,4,5,6,7,8,9].map(k=>`<button class="key" data-act="key" data-v="${k}">${k}</button>`).join('')}
@@ -950,7 +1127,8 @@ function arenaCheck(){
   G.busy = true;
   if(+G.typed !== G.q.ans) return arenaMiss(true);
   G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak);
-  const pts = Math.round((100 + speedBonus(G.dur - G.left - G.qStart)) * comboMult(G.streak));
+  const t = G.dur - G.left - G.qStart, pts = Math.round((100 + speedBonus(t)) * comboMult(G.streak));
+  hit(G.streak); if(t < 3) track('fast');
   G.score += pts; G.me.score = G.score;
   box.classList.add('ok'); $('#lqc').classList.add('ok'); beep(620 + Math.min(G.streak, 12)*35, .1);
   const g = document.createElement('div'); g.className = 'gain'; g.textContent = `+${pts}`;
@@ -1016,6 +1194,10 @@ function arenaResult(){
   const rate = g.correct / g.dur, old = S.rate[g.skillId];
   S.rate[g.skillId] = Math.max(.08, old ? old*.6 + rate*.4 : rate);
   S.games++;
+  const li = league(), dt = TROPHY[place-1];
+  S.trophies = Math.max(0, S.trophies + dt);
+  if(league() > li) news(`🛡️ You reached the ${LEAGUES[league()][0]} league!`);
+  track('arena'); if(place <= 3) track('podium'); if(place === 1) track('win'); if(g.daily) track('daily');
   const res = grant(5 + Math.round(g.correct*1.5) + ([20,12,8][place-1] || 0) + (firstDaily ? 30 : 0), 10 + g.correct*4);
   const tries = g.correct + g.wrong, acc = tries ? Math.round(g.correct/tries*100) : 0;
   stop(); setChrome(false); window.scrollTo(0,0);
@@ -1023,7 +1205,7 @@ function arenaResult(){
     <h1>${place === 1 ? 'You won! 🏆' : `${ord(place)} place${place <= 3 ? '!' : ''}`}</h1>
     <p class="muted">${g.correct} right in ${g.dur/60} minute${g.dur > 60 ? 's' : ''}. ${place === 1 ? 'Nobody was faster!' : place <= 3 ? 'You made the podium.' : 'Keep a streak going to climb higher.'}</p>
     <div class="podium">${[1,0,2].map(i=>{ const p = ranked[i];
-      return `<div class="pod p${i+1} ${p.you?'you':''}">${charSVG(p.char, p.you ? 'class="bob"' : '')}<span class="nm">${p.name}</span><span class="muted">${p.score}</span><div class="blk">${i+1}</div></div>`; }).join('')}</div>
+      return `<div class="pod p${i+1} ${p.you?'you':''}">${charSVG(p.char, p.you ? 'class="bob"' : '', p.hat)}<span class="nm">${p.name}</span><span class="muted">${p.score}</span><div class="blk">${i+1}</div></div>`; }).join('')}</div>
     ${pb ? `<div class="badge">${g.daily ? 'Best daily score today!' : 'New personal best!'}</div>` : ''}
     <div class="statgrid wide">
       <div class="stat"><b>${g.score}</b><span>Points</span></div>
@@ -1031,8 +1213,10 @@ function arenaResult(){
       <div class="stat"><b>${acc}%</b><span>Accuracy</span></div>
       <div class="stat"><b>${g.bestStreak}</b><span>Best streak</span></div>
     </div>
-    <div class="rewards"><span class="pill">🪙 +${res.coins}</span><span class="pill xpp">⚡ +${res.xp} XP</span></div>
+    <div class="rewards"><span class="pill">🪙 +${res.coins}</span><span class="pill xpp">⚡ +${res.xp} XP</span>
+      <span class="pill ${dt < 0 ? 'lose' : 'trophy'}">🏆 ${dt < 0 ? dt : '+' + dt}</span></div>
     ${res.up ? `<div class="lvlup">Level up! You're level ${S.level}</div>` : ''}
+    ${newsHTML()}
     ${g.misses.length ? `<p class="muted">Practice these next time:</p><div class="review">${g.misses.slice(0, 8).map(m=>`<span>${m}</span>`).join('')}</div>` : ''}
     <div class="stack" style="margin-top:6px;max-width:420px">
       <button class="btn green" data-act="${g.daily ? 'daily' : 'arena-go'}" data-v="${g.skillId}">Play again</button>
@@ -1041,34 +1225,96 @@ function arenaResult(){
   if(place <= 3) confetti();
 }
 
-/* ================= crew ================= */
+/* ================= goals ================= */
+const untilMidnight = () => { const ms = new Date().setHours(24,0,0,0) - Date.now(); return `${Math.floor(ms/36e5)}h ${Math.floor(ms%36e5/6e4)}m`; };
+function renderGoals(){
+  stop(); tab = 'goals'; setChrome(true); renderTop(); markTab(); window.scrollTo(0,0);
+  const q = quests(), ds = dayStreak(), played = S.lastDay === dayKey(), bonus = Math.min(50, (ds + 1)*10);
+  const got = BADGES.filter(b => S.badges[b.id]).length, ready = q.claimed.length === 3 && !q.chest;
+  view.innerHTML = `<section class="page">
+    <div class="streakcard ${played ? '' : 'cold'}"><span class="flame">${played ? '🔥' : '🧊'}</span><div>
+      <b>${ds} day streak</b>
+      <small>${played ? `You played today! Come back tomorrow for +${bonus} coins.` : `Play any game today to get +${bonus} coins${ds ? ' and keep your streak' : ''}.`}</small>
+      <div class="week">${Array.from({length:7}, (_, i)=>`<i class="${i < Math.min(ds, 7) ? 'on' : ''}">${i < Math.min(ds, 7) ? '🔥' : ''}</i>`).join('')}</div></div></div>
+    <div class="h2row"><h2>Daily quests</h2><small>New in ${untilMidnight()}</small></div>
+    <div class="quests">${q.ids.map(id=>{
+      const d = QBY[id], prog = Math.min(q.prog[d.m] || 0, d.n), done = prog >= d.n, claimed = q.claimed.includes(id);
+      return `<div class="quest ${done ? 'done' : ''} ${claimed ? 'claimed' : ''}"><span class="qi">${d.icon}</span>
+        <div class="qb"><b>${d.text}</b><span class="qbar"><i style="width:${prog/d.n*100}%"></i></span><small>${prog} / ${d.n}</small></div>
+        ${claimed ? '<span class="qok" aria-label="Claimed">✓</span>' : done ? `<button class="btn sm gold claim" data-act="claim" data-v="${id}">🪙 ${d.coins}</button>` : `<span class="qreward">🪙 ${d.coins}</span>`}</div>`;
+    }).join('')}</div>
+    <div class="chestcard ${ready ? 'ready' : ''}"><span class="chest">${q.chest ? '📭' : '🎁'}</span><div>
+      <b>${q.chest ? 'Chest opened!' : 'Daily chest'}</b>
+      <small>${q.chest ? 'A new chest comes tomorrow.' : ready ? 'Tap to see what is inside!' : `Claim all 3 quests to open it (${q.claimed.length}/3)`}</small></div>
+      ${ready ? '<button class="btn sm green" data-act="chest">Open!</button>' : ''}</div>
+    <div class="h2row"><h2>Badges</h2><small>${got} of ${BADGES.length}</small></div>
+    <div class="badges">${BADGES.map(b=>`<div class="bdg ${S.badges[b.id] ? 'got' : ''}"><span>${b.icon}</span><b>${b.name}</b><small>${b.desc}</small></div>`).join('')}</div>
+  </section>`;
+}
+function claimQuest(id){
+  const q = quests();
+  if(!q.ids.includes(id) || q.claimed.includes(id) || !questDone(id)) return;
+  q.claimed.push(id); S.coins += QBY[id].coins;
+  track('quests');
+  beep(784, .12, 'triangle'); toast(`+${QBY[id].coins} coins!`);
+  renderGoals();
+}
+function openChest(){
+  const q = quests(); if(q.chest || q.claimed.length < 3) return;
+  const coins = r(40, 100), free = Object.keys(HATS).filter(h => !S.hats.includes(h));
+  const hat = free.length && Math.random() < .4 ? pick(free) : null;
+  q.chest = true; S.coins += coins; if(hat) S.hats.push(hat);
+  checkBadges(); save(); renderGoals();
+  $('#sheet').innerHTML = `<div class="overlay" data-act="close"><div class="sheet" role="dialog" aria-label="Treasure chest">
+    <div class="bigchest" id="bc">🎁</div>
+    <div id="loot" hidden>${hat ? charSVG(S.char, 'class="who bob"', hat) : '<div class="ico">🪙</div>'}
+      <h2>${hat ? `You found a ${HATS[hat].name}!` : 'Treasure!'}</h2>
+      <p class="muted">+${coins} coins${hat ? ' and a new hat to wear' : ''}</p>
+      <div class="stack">${hat ? `<button class="btn green" data-act="wear" data-v="${hat}">Wear it</button>` : ''}
+        <button class="btn ${hat ? 'ghost' : 'green'}" data-act="close">Awesome!</button></div></div></div></div>`;
+  beep(300, .5, 'triangle', .05);
+  setTimeout(()=>{ const bc = $('#bc'), loot = $('#loot'); if(!bc || !loot) return;
+    bc.remove(); loot.hidden = false; confetti(); beep(660, .12); setTimeout(()=>beep(990, .25, 'triangle'), 120); }, 1100);
+}
+
+/* ================= me ================= */
+let meTab = 'buddies';
 function renderCrew(){
   stop(); tab = 'crew'; setChrome(true); renderTop(); markTab(); window.scrollTo(0,0);
   const doneCount = Object.keys(S.done).length;
+  const card = (svg, name, sub, btn, sel) => `<div class="cc ${sel ? 'sel' : ''}">${svg}<h3>${name}</h3>${sub ? `<p>${sub}</p>` : ''}${btn}</div>`;
+  const cards = meTab === 'buddies'
+    ? Object.entries(CHARS).map(([id, c])=>{
+        const own = S.owned.includes(id), sel = S.char === id;
+        return card(charSVG(id, '', S.hat), c.name, c.bio,
+          sel ? `<button class="btn sm ghost" disabled>With you</button>`
+          : own ? `<button class="btn sm" data-act="pickc" data-v="${id}">Choose</button>`
+          : `<button class="btn sm gold" data-act="buyc" data-v="${id}" ${S.coins < c.price ? 'disabled' : ''}>🪙 ${c.price}</button>`, sel); })
+    : [card(charSVG(S.char), 'No hat', '', S.hat ? `<button class="btn sm" data-act="wear" data-v="">Take off</button>` : `<button class="btn sm ghost" disabled>Wearing</button>`, !S.hat)]
+      .concat(Object.entries(HATS).map(([id, h])=>{
+        const own = S.hats.includes(id), on = S.hat === id;
+        return card(charSVG(S.char, '', id), h.name, '',
+          on ? `<button class="btn sm ghost" disabled>Wearing</button>`
+          : own ? `<button class="btn sm" data-act="wear" data-v="${id}">Wear</button>`
+          : `<button class="btn sm gold" data-act="buyh" data-v="${id}" ${S.coins < h.price ? 'disabled' : ''}>🪙 ${h.price}</button>`, on); }));
   view.innerHTML = `<section class="page">
-    <h1>Your crew</h1>
-    <p class="muted">Pick a buddy to explore the map with you. Earn coins in lessons and games to unlock more friends.</p>
+    <div class="mehead">${meSVG('class="bob"')}<div><h1>${CHARS[S.char].name}</h1><small>Level ${S.level} · ${LEAGUES[league()][0]} league · 🏆 ${S.trophies}</small></div></div>
     <div class="statgrid">
       <div class="stat"><b>${doneCount}/${NODES.length}</b><span>Steps done</span></div>
       <div class="stat"><b>${totalStars()}</b><span>Stars</span></div>
-      <div class="stat"><b>${S.coins}</b><span>Coins</span></div>
+      <div class="stat"><b>${BADGES.filter(b => S.badges[b.id]).length}</b><span>Badges</span></div>
       <div class="stat"><b>${S.games}</b><span>Arena games</span></div>
       <div class="stat"><b>${Math.max(0, ...Object.values(S.best), ...Object.values(S.daily))}</b><span>Best score</span></div>
       <div class="stat"><b>${dayStreak()}</b><span>Day streak</span></div>
     </div>
-    <div class="crew">${Object.entries(CHARS).map(([id, c])=>{
-      const own = S.owned.includes(id), sel = S.char === id;
-      const btn = sel ? `<button class="btn sm ghost" disabled>With you</button>`
-        : own ? `<button class="btn sm" data-act="pickc" data-v="${id}">Choose</button>`
-        : `<button class="btn sm gold" data-act="buyc" data-v="${id}" ${S.coins < c.price ? 'disabled' : ''}>🪙 ${c.price}</button>`;
-      return `<div class="cc ${sel?'sel':''}">${charSVG(id)}<h3>${c.name}</h3><p>${c.bio}</p>${btn}</div>`;
-    }).join('')}</div></section>`;
+    <div class="seg light" role="group" aria-label="Show">${[['buddies','🐾 Buddies'],['hats','🎩 Hats']].map(([k, l])=>`<button data-act="metab" data-v="${k}" class="${meTab === k ? 'on' : ''}">${l}</button>`).join('')}</div>
+    <div class="crew">${cards.join('')}</div></section>`;
 }
 
 /* ================= events ================= */
 document.addEventListener('click', e=>{
   const tabBtn = e.target.closest('[data-tab]');
-  if(tabBtn){ ({map:renderMap, arena:renderArena, crew:renderCrew})[tabBtn.dataset.tab](); return; }
+  if(tabBtn){ ({map:renderMap, arena:renderArena, goals:renderGoals, crew:renderCrew})[tabBtn.dataset.tab](); return; }
   const node = e.target.closest('[data-node]');
   if(node){ openSheet(node.dataset.node); return; }
   const el = e.target.closest('[data-act]'); if(!el || el.disabled) return;
@@ -1092,7 +1338,13 @@ document.addEventListener('click', e=>{
   if(a === 'skip'){ if(G && G.kind === 'arena' && G.phase === 'play' && !G.busy) arenaMiss(false); return; }
   if(a === 'pickc'){ S.char = v; save(); return renderCrew(); }
   if(a === 'buyc'){ const c = CHARS[v]; if(S.coins < c.price) return;
-    S.coins -= c.price; S.owned.push(v); S.char = v; save(); toast(`${c.name} joined your crew!`); return renderCrew(); }
+    S.coins -= c.price; S.owned.push(v); S.char = v; toast(`${c.name} joined your crew!`); checkBadges(); save(); return renderCrew(); }
+  if(a === 'metab'){ meTab = v; return renderCrew(); }
+  if(a === 'buyh'){ const h = HATS[v]; if(S.coins < h.price) return;
+    S.coins -= h.price; S.hats.push(v); S.hat = v; toast(`You got the ${h.name}!`); checkBadges(); save(); return renderCrew(); }
+  if(a === 'wear'){ S.hat = v || null; save(); closeSheet(); return tab === 'goals' ? renderGoals() : renderCrew(); }
+  if(a === 'claim') return claimQuest(v);
+  if(a === 'chest') return openChest();
 });
 document.addEventListener('keydown', e=>{
   if(G && G.kind === 'arena'){
