@@ -181,6 +181,88 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
 .stat b{display:block;font-family:Fredoka;font-weight:600;font-size:1.6rem}
 .stat span{font-size:.8rem;color:var(--muted);font-weight:800}
 
+.statgrid.wide{grid-template-columns:repeat(4,1fr);width:100%;max-width:420px;margin-bottom:0}
+.statgrid.wide b{font-size:1.3rem}
+
+/* speed arena */
+.pill.fire{background:#ffe9e0;color:#b33a12}
+.page h2{font-size:1.3rem;margin:22px 0 10px}
+.headrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sound{border:0;background:#fff;border-radius:12px;padding:8px 11px;font-weight:800;color:var(--muted);box-shadow:0 3px 0 var(--line)}
+.daily{display:flex;align-items:center;gap:14px;width:100%;border:0;text-align:left;color:#fff;border-radius:22px;padding:16px;
+  background:linear-gradient(135deg,#7b5cff,#4fb6ee);box-shadow:0 5px 0 #4b33c2}
+.daily:active{transform:translateY(3px);box-shadow:0 2px 0 #4b33c2}
+.daily .big{font-size:2.4rem;line-height:1}
+.daily b{display:block;font-family:Fredoka;font-weight:600;font-size:1.25rem}
+.daily small{font-weight:700;font-size:.88rem;opacity:.92}
+.seg{display:flex;background:#fff;border-radius:14px;padding:4px;box-shadow:0 3px 0 var(--line);margin-bottom:14px}
+.seg button{flex:1;border:0;background:transparent;padding:9px;border-radius:10px;font-weight:800;color:var(--muted)}
+.seg button.on{background:var(--violet);color:#fff}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sk{border:0;background:#fff;border-radius:20px;padding:14px 12px;text-align:left;color:var(--ink);box-shadow:0 5px 0 var(--line);display:flex;flex-direction:column;gap:3px}
+.sk:active{transform:translateY(3px);box-shadow:0 2px 0 var(--line)}
+.sk .si{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-family:Fredoka;font-weight:700;font-size:1.4rem;color:#fff;background:var(--c)}
+.sk b{font-family:Fredoka;font-weight:600;font-size:1.08rem;margin-top:5px}
+.sk small{color:var(--muted);font-weight:700;font-size:.8rem}
+
+.lobby{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px 18px;text-align:center;color:#fff;
+  background:linear-gradient(#3b2a6b,#6243b8)}
+.lobby h1{font-size:1.9rem}
+.lobby p{font-weight:800;opacity:.85}
+.joined{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:360px}
+.pl{background:rgba(255,255,255,.12);border-radius:18px;padding:10px 6px;font-weight:800;font-size:.92rem;animation:popin .4s backwards}
+.pl svg{width:54px;height:54px;display:block;margin:0 auto 4px}
+.pl.you{background:rgba(255,255,255,.26);box-shadow:inset 0 0 0 3px #ffe066}
+.count{font-family:Fredoka;font-weight:700;font-size:6.5rem;line-height:1;color:#ffe066;text-shadow:0 6px 0 #a3215c;animation:popin .45s}
+#cd{min-height:6.5rem}
+
+.live{gap:10px}
+.clock i{background:linear-gradient(90deg,#ffab3d,#ff6b5b);transition:none}
+.secs{font-family:Fredoka;font-weight:600;font-size:1.3rem;min-width:40px;text-align:right}
+.secs.low{color:var(--coral)}
+.board{--rh:26px;position:relative;height:calc(var(--n) * var(--rh) + 8px);background:#fff;border-radius:18px;box-shadow:0 4px 0 var(--line);overflow:hidden}
+.lb{position:absolute;top:4px;left:6px;right:6px;height:var(--rh);display:flex;align-items:center;gap:8px;padding:0 8px;border-radius:9px;font-weight:800;font-size:.9rem;transition:transform .45s ease}
+.lb.you{background:#efeaff;color:var(--violet-d);z-index:1}
+.lb .rk{width:16px;color:var(--muted)}
+.lb svg{width:22px;height:22px;flex:none}
+.lb .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb .pt{font-variant-numeric:tabular-nums}
+.scorebar{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:34px}
+.score{font-family:Fredoka;font-weight:700;font-size:1.5rem}
+.qcard.liveq{position:relative;padding:16px 12px 10px}
+.box{display:inline-block;min-width:1.6em;padding:0 .15em;border-radius:14px;background:#f2f0fc;color:var(--violet-d)}
+.box:empty::after{content:"";display:inline-block;width:3px;height:.85em;background:var(--violet);vertical-align:-.06em;animation:blink 1s steps(1) infinite}
+.box.ok{background:#d9f7e5;color:var(--green-d)}
+.box.no{background:#ffe1dd;color:var(--coral-d);animation:shake .35s}
+@keyframes blink{50%{opacity:0}}
+.hint{min-height:1.5em;margin-top:6px;font-weight:800;color:var(--coral-d)}
+.skip{border:0;background:none;color:var(--muted);font-weight:800;font-size:.9rem;text-decoration:underline;padding:4px 10px}
+.gain{position:absolute;right:16px;top:10px;font-family:Fredoka;font-weight:700;font-size:1.5rem;color:var(--green);animation:gainup .7s forwards;pointer-events:none}
+@keyframes gainup{to{transform:translateY(-18px);opacity:0}}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:auto}
+.key{border:0;border-radius:16px;padding:13px 0;font-family:Fredoka;font-weight:600;font-size:1.7rem;color:var(--ink);background:#fff;box-shadow:0 5px 0 var(--line);transition:transform .05s,box-shadow .05s}
+.key:active{transform:translateY(4px);box-shadow:0 1px 0 var(--line)}
+.key.del{background:#f2f0fc;color:var(--muted)}
+.key.go{background:var(--green);color:#fff;box-shadow:0 5px 0 var(--green-d)}
+.timesup{position:fixed;inset:0;display:grid;place-items:center;background:rgba(35,32,74,.6);z-index:30;font-family:Fredoka;font-weight:700;font-size:3rem;color:#fff;animation:fade .2s}
+@media (max-height:720px){
+  .board{--rh:22px} .lb{font-size:.82rem} .lb svg{width:18px;height:18px}
+  .key{padding:9px 0;font-size:1.5rem} .liveq .qtext{font-size:clamp(2rem,10vw,2.8rem)}
+}
+
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:8px;width:100%;max-width:360px;margin-top:6px}
+.pod{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:800;font-size:.9rem}
+.pod svg{width:62px;height:62px}
+.pod .nm{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pod.you .nm{color:var(--violet-d)}
+.pod .blk{width:100%;margin-top:4px;border-radius:14px 14px 0 0;padding-top:8px;font-family:Fredoka;font-weight:700;font-size:1.6rem;color:#fff}
+.pod.p1 .blk{height:104px;background:var(--gold);color:#7a5000}
+.pod.p2 .blk{height:78px;background:#aab6d3}
+.pod.p3 .blk{height:58px;background:#e3a173}
+.badge{background:var(--gold);color:#4a3200;font-weight:800;padding:8px 14px;border-radius:14px;animation:popin .45s}
+.review{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.review span{background:#fff;border-radius:12px;padding:6px 10px;font-weight:800;box-shadow:0 3px 0 var(--line)}
+
 .toast{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-weight:800;z-index:40;max-width:90vw;text-align:center;animation:fade .2s}
 .cf{position:fixed;top:-16px;width:10px;height:14px;border-radius:3px;z-index:50;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
@@ -194,6 +276,7 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
   <main id="view"></main>
   <nav class="nav" id="nav">
     <button data-tab="map" class="on">🗺️ Map</button>
+    <button data-tab="arena">⚡ Arena</button>
     <button data-tab="crew">🐾 Crew</button>
   </nav>
 </div>
@@ -204,8 +287,13 @@ button{font-family:inherit;touch-action:manipulation;cursor:pointer}
 /* ================= helpers ================= */
 const $ = s => document.querySelector(s);
 const view = $('#view');
-const r = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
-const pick = a => a[Math.floor(Math.random()*a.length)];
+let RNG = Math.random; // swapped for a seeded generator while building the daily challenge
+const r = (a,b) => Math.floor(RNG()*(b-a+1))+a;
+const pick = a => a[Math.floor(RNG()*a.length)];
+const seeded = s => () => { s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+const hash = str => [...str].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619), 2166136261);
+const dayKey = (t = Date.now()) => { const d = new Date(t); return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`; };
+const ord = n => n + (['th','st','nd','rd'][n] || 'th');
 const shuffle = a => { for(let i=a.length-1;i>0;i--){ const j=r(0,i); [a[i],a[j]]=[a[j],a[i]]; } return a; };
 const SYM = {'+':'+','-':'−','×':'×','÷':'÷'};
 const PRAISE = ['Nice!','You got it!','Awesome!','Super smart!','Keep it up!','Math wizard!','Nailed it!'];
@@ -305,13 +393,19 @@ const TYPE = {
 
 /* ================= save ================= */
 const KEY = '100math-v2';
-const defaults = () => ({char:'pip', owned:['pip'], coins:0, xp:0, level:1, done:{}, seen:false});
+const defaults = () => ({char:'pip', owned:['pip'], coins:0, xp:0, level:1, done:{}, seen:false,
+  best:{}, rate:{}, daily:{}, games:0, dur:60, sound:true, dayStreak:0, lastDay:''});
 let S = (()=>{ try{ const d = JSON.parse(localStorage.getItem(KEY)); if(d) return Object.assign(defaults(), d); }catch(e){} return defaults(); })();
 const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
 const need = l => 80 + l*40;
 const unlocked = n => n.idx === 0 || (S.done[NODES[n.idx-1].id] || 0) > 0;
 const currentIdx = () => { const i = NODES.findIndex(n => !S.done[n.id]); return i < 0 ? NODES.length-1 : i; };
 const totalStars = () => Object.values(S.done).reduce((a,b)=>a+b, 0);
+const dayStreak = () => [dayKey(), dayKey(Date.now()-864e5)].includes(S.lastDay) ? S.dayStreak : 0;
+function markDay(){
+  const today = dayKey(); if(S.lastDay === today) return;
+  S.dayStreak = S.lastDay === dayKey(Date.now()-864e5) ? S.dayStreak + 1 : 1; S.lastDay = today;
+}
 
 function award(n, stars){
   const first = !S.done[n.id];
@@ -319,7 +413,10 @@ function award(n, stars){
   const coins = first ? base + stars*5 : Math.round(base/4) + stars;
   const xp = first ? 30 + stars*10 : 10 + stars*2;
   if(stars > (S.done[n.id]||0)) S.done[n.id] = stars;
-  S.coins += coins; S.xp += xp;
+  return grant(coins, xp);
+}
+function grant(coins, xp){
+  S.coins += coins; S.xp += xp; markDay();
   let up = false;
   while(S.xp >= need(S.level)){ S.xp -= need(S.level); S.level++; up = true; }
   save();
@@ -334,7 +431,7 @@ function problem(s){
     const x = r(lo, s.max-lo), y = r(lo, s.max-x);
     if(s.op==='+'){ a=x; b=y; ans=x+y; } else { a=x+y; b=x; ans=y; }
   }
-  if(s.op==='×'){ const f = pick(s.facs), o = r(1, s.max); [a,b] = Math.random()<.5 ? [f,o] : [o,f]; ans = a*b; }
+  if(s.op==='×'){ const f = pick(s.facs), o = r(1, s.max); [a,b] = RNG()<.5 ? [f,o] : [o,f]; ans = a*b; }
   if(s.op==='÷'){ b = pick(s.facs); ans = r(1, s.max); a = b*ans; }
   return {a, b, ans, op:s.op};
 }
@@ -399,6 +496,7 @@ function renderTop(){
   $('#top').innerHTML = `
     <div class="avatar">${charSVG(S.char)}</div>
     <div class="lvl"><b>Level ${S.level}</b><div class="xp"><i style="width:${S.xp/n*100}%"></i></div></div>
+    ${dayStreak() ? `<span class="pill fire" title="Days in a row">🔥 ${dayStreak()}</span>` : ''}
     <span class="pill star">⭐ ${totalStars()}</span>
     <span class="pill">🪙 ${S.coins}</span>`;
 }
@@ -481,7 +579,7 @@ function welcome(){
   $('#sheet').innerHTML = `<div class="overlay"><div class="sheet" role="dialog" aria-label="Welcome">
     ${charSVG('pip','class="who bob"')}
     <h2>Hi, I'm Pip!</h2>
-    <p class="muted">Let's explore the islands together. Finish a lesson to unlock the game after it, then beat the boss to reach the next island.</p>
+    <p class="muted">Let's explore the islands together. Finish a lesson to unlock the game after it, then beat the boss to reach the next island. Want a challenge? Race other players in the Speed Arena.</p>
     <button class="btn green" data-act="welcomed">Let's go</button></div></div>`;
 }
 const closeSheet = () => $('#sheet').innerHTML = '';
@@ -699,6 +797,201 @@ function bossHurt(){
   else setTimeout(()=>{ if(G===tok && G.alive) bossQ(); }, 1000);
 }
 
+/* ================= speed arena ================= */
+const SKILLS = {
+  add10:{name:'Adding to 10',      icon:'+', color:'#22a855', specs:[{op:'+',max:10}]},
+  add20:{name:'Adding to 20',      icon:'+', color:'#17803f', specs:[{op:'+',max:20}]},
+  sub20:{name:'Taking away to 20', icon:'−', color:'#0f9e8e', specs:[{op:'-',max:20}]},
+  add99:{name:'Two-digit adding',  icon:'+', color:'#2f8fe0', specs:[{op:'+',max:99,min:10}]},
+  sub99:{name:'Two-digit taking away', icon:'−', color:'#1f6fbf', specs:[{op:'-',max:99,min:10}]},
+  mul:  {name:'Times tables',      icon:'×', color:'#6a4cff', specs:[{op:'×',facs:ALL,max:10}]},
+  div:  {name:'Division facts',    icon:'÷', color:'#e8552c', specs:[{op:'÷',facs:ALL,max:10}]},
+  mix:  {name:'Mixed facts',       icon:'★', color:'#d94784', specs:[{op:'+',max:20},{op:'-',max:20},{op:'×',facs:ALL,max:10},{op:'÷',facs:ALL,max:10}]}
+};
+const BOTS = ['Maya','Leo','Aria','Kai','Zoe','Omar','Ivy','Theo','Nina','Ravi','Luca','Mila','Sam','Yuki','Ada','Finn'];
+const comboMult = s => s >= 10 ? 3 : s >= 5 ? 2 : 1;
+const speedBonus = t => Math.max(0, Math.min(50, Math.round(62 - t*12)));
+const byScore = (a, b) => b.score - a.score || (a.you ? -1 : b.you ? 1 : 0);
+
+let AC;
+function beep(freq, dur=.09, type='sine', vol=.07){
+  if(!S.sound) return;
+  try{
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const o = AC.createOscillator(), g = AC.createGain(), t = AC.currentTime;
+    o.type = type; o.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    o.connect(g); g.connect(AC.destination); o.start(t); o.stop(t + dur);
+  }catch(e){}
+}
+
+function renderArena(){
+  stop(); tab = 'arena'; setChrome(true); renderTop(); markTab(); window.scrollTo(0,0);
+  const today = S.daily[dayKey()];
+  view.innerHTML = `<section class="page">
+    <div class="headrow"><h1>Speed Arena</h1><button class="sound" data-act="sound">${S.sound ? '🔊 Sound on' : '🔇 Sound off'}</button></div>
+    <p class="muted">Race 5 other players. Answer as many questions as you can before the clock runs out. Fast answers and streaks earn extra points.</p>
+    <button class="daily" data-act="daily"><span class="big">📅</span><span><b>Daily challenge</b>
+      <small>${today != null ? `Today's score: ${today}. Play again to beat it.` : 'Mixed facts, 1 minute. Earn 30 bonus coins today.'}</small></span></button>
+    <h2>Pick a skill</h2>
+    <div class="seg" role="group" aria-label="Round length">${[60,120].map(d=>`<button data-act="dur" data-v="${d}" class="${S.dur===d?'on':''}">${d/60} minute${d>60?'s':''}</button>`).join('')}</div>
+    <div class="skills">${Object.entries(SKILLS).map(([id, s])=>{ const b = S.best[`${id}-${S.dur}`];
+      return `<button class="sk" data-act="arena-go" data-v="${id}" style="--c:${s.color}"><span class="si">${s.icon}</span><b>${s.name}</b><small>${b ? `Best: ${b}` : 'No score yet'}</small></button>`;
+    }).join('')}</div></section>`;
+}
+
+function startArena(skillId, daily=false){
+  stop(); window.scrollTo(0,0); setChrome(false);
+  const skill = SKILLS[skillId], dur = daily ? 60 : S.dur;
+  // rivals are paced around this player's own speed on the skill, so races stay close
+  const rate = S.rate[skillId] || .28, ids = Object.keys(CHARS), factors = shuffle([.65,.8,.95,1.1,1.3]);
+  const players = [{you:true, name:'You', char:S.char, score:0}].concat(shuffle(BOTS.slice()).slice(0,5).map((name, i)=>{
+    const gap = Math.max(1.1, 1/(rate*factors[i])), first = gap*(.6 + Math.random()*.8) + .4;
+    return {name, char:pick(ids), score:0, streak:0, gap, acc:.8 + Math.random()*.17, cur:first, next:first};
+  }));
+  G = {kind:'arena', alive:true, phase:'lobby', skillId, skill, daily, dur, left:dur, players, me:players[0],
+    score:0, correct:0, wrong:0, streak:0, bestStreak:0, typed:'', misses:[], rng: daily ? seeded(hash('daily' + dayKey())) : null};
+  view.innerHTML = `<div class="lobby"><h1>${daily ? 'Daily challenge' : skill.name}</h1>
+    <p id="lob">Finding players…</p><div class="joined" id="joined"></div><div id="cd"></div></div>`;
+  const tok = G;
+  players.forEach((p, i)=>setTimeout(()=>{ if(G !== tok) return;
+    $('#joined').insertAdjacentHTML('beforeend', `<div class="pl ${p.you?'you':''}">${charSVG(p.char)}${p.name}</div>`); beep(520 + i*60, .06); }, i*380));
+  setTimeout(()=>{ if(G === tok) countdown(3); }, players.length*380 + 400);
+}
+function countdown(n){
+  const tok = G;
+  $('#lob').textContent = 'Get ready!';
+  $('#cd').innerHTML = `<div class="count">${n || 'Go!'}</div>`;
+  beep(n ? 440 : 880, n ? .12 : .25, 'triangle', .09);
+  setTimeout(()=>{ if(G === tok) n ? countdown(n-1) : arenaPlay(); }, n ? 750 : 550);
+}
+function arenaPlay(){
+  G.phase = 'play';
+  view.innerHTML = `<div class="play live">
+    <div class="playtop"><button class="x" data-act="arena" aria-label="Leave">✕</button>
+      <div class="prog clock"><i id="tm" style="width:100%"></i></div><span class="secs" id="secs">${G.dur}</span></div>
+    <div class="board" id="board" style="--n:${G.players.length}">${G.players.map(p=>`<div class="lb ${p.you?'you':''}"><span class="rk"></span>${charSVG(p.char)}<span class="nm">${p.name}</span><span class="pt">0</span></div>`).join('')}</div>
+    <div class="scorebar"><span class="score" id="sc">0 points</span><span class="pill fire" id="combo" hidden></span></div>
+    <div class="qcard liveq" id="lqc"><div class="qtext"><span id="lq"></span> <span class="box" id="typed"></span></div>
+      <div class="hint" id="hint"></div><button class="skip" data-act="skip">Skip</button></div>
+    <div class="pad">${[1,2,3,4,5,6,7,8,9].map(k=>`<button class="key" data-act="key" data-v="${k}">${k}</button>`).join('')}
+      <button class="key del" data-act="key" data-v="del" aria-label="Delete">⌫</button><button class="key" data-act="key" data-v="0">0</button><button class="key go" data-act="key" data-v="ok" aria-label="Check">✓</button></div>
+  </div>`;
+  arenaQ(); drawBoard();
+  G.tick = 0; G.last = performance.now(); requestAnimationFrame(arenaLoop);
+}
+function arenaQ(){
+  let q, guard = 0;
+  if(G.rng) RNG = G.rng;
+  do q = problem(pick(G.skill.specs)); while(G.q && qtext(q) === qtext(G.q) && guard++ < 5);
+  RNG = Math.random;
+  G.q = q; G.typed = ''; G.busy = false; G.qStart = G.dur - G.left;
+  $('#lq').textContent = `${q.a} ${SYM[q.op]} ${q.b} =`;
+  const box = $('#typed'); box.className = 'box'; box.textContent = '';
+  $('#hint').textContent = '';
+}
+function arenaKey(k){
+  if(!G || G.kind !== 'arena' || G.phase !== 'play' || G.busy) return;
+  if(k === 'ok'){ if(G.typed) arenaCheck(); return; }
+  if(k === 'del') G.typed = G.typed.slice(0, -1);
+  else if(G.typed.length < 3) G.typed = (G.typed + k).replace(/^0+(?=\d)/, '');
+  $('#typed').textContent = G.typed;
+  if(G.typed && +G.typed === G.q.ans) arenaCheck(); // right answers go through without pressing ✓
+}
+function arenaCheck(){
+  const tok = G, box = $('#typed');
+  G.busy = true;
+  if(+G.typed !== G.q.ans) return arenaMiss(true);
+  G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak);
+  const pts = Math.round((100 + speedBonus(G.dur - G.left - G.qStart)) * comboMult(G.streak));
+  G.score += pts; G.me.score = G.score;
+  box.classList.add('ok'); beep(620 + Math.min(G.streak, 12)*35, .1);
+  const g = document.createElement('div'); g.className = 'gain'; g.textContent = `+${pts}`;
+  $('#lqc').appendChild(g); setTimeout(()=>g.remove(), 800);
+  arenaScore();
+  setTimeout(()=>{ if(G === tok && G.phase === 'play') arenaQ(); }, 220);
+}
+function arenaMiss(typed){
+  const tok = G, fact = `${G.q.a} ${SYM[G.q.op]} ${G.q.b} = ${G.q.ans}`;
+  G.busy = true; G.wrong++; G.streak = 0;
+  if(!G.misses.includes(fact)) G.misses.push(fact);
+  if(typed) $('#typed').classList.add('no');
+  $('#hint').textContent = `${typed ? 'Not quite. ' : ''}${fact}`;
+  beep(170, .18, 'square', .04); arenaScore();
+  setTimeout(()=>{ if(G === tok && G.phase === 'play') arenaQ(); }, 1000);
+}
+function arenaScore(){
+  $('#sc').textContent = `${G.score} points`;
+  const c = $('#combo'), m = comboMult(G.streak);
+  c.hidden = G.streak < 2;
+  c.textContent = `🔥 ${G.streak} in a row${m > 1 ? ` · ×${m}` : ''}`;
+}
+function drawBoard(){
+  const order = G.players.slice().sort(byScore), rows = $('#board').children;
+  G.players.forEach((p, i)=>{
+    const rank = order.indexOf(p), row = rows[i];
+    row.style.transform = `translateY(calc(${rank} * var(--rh)))`;
+    row.querySelector('.rk').textContent = rank + 1;
+    row.querySelector('.pt').textContent = p.score;
+  });
+}
+function arenaLoop(t){
+  if(!G || G.kind !== 'arena' || !G.alive) return;
+  const dt = Math.min(.05, (t - G.last)/1000); G.last = t;
+  G.left = Math.max(0, G.left - dt);
+  G.players.forEach(p=>{
+    if(p.you || (p.next -= dt) > 0) return;
+    if(Math.random() < p.acc){ p.streak++; p.score += Math.round((100 + speedBonus(p.cur)) * comboMult(p.streak)); }
+    else p.streak = 0;
+    p.cur = p.next = p.gap * (.6 + Math.random()*.8);
+  });
+  if((G.tick += dt) > .2){ G.tick = 0; drawBoard(); }
+  $('#tm').style.width = (G.left/G.dur*100) + '%';
+  const s = $('#secs'), sec = Math.ceil(G.left);
+  if(s.textContent != sec){ s.textContent = sec; s.classList.toggle('low', sec <= 10); if(sec <= 5 && sec > 0) beep(990, .05, 'sine', .05); }
+  if(G.left <= 0) return arenaEnd();
+  requestAnimationFrame(arenaLoop);
+}
+function arenaEnd(){
+  const tok = G;
+  G.alive = false; G.phase = 'end'; drawBoard();
+  $('#sheet').innerHTML = `<div class="timesup">Time's up!</div>`;
+  beep(330, .35, 'triangle', .09);
+  setTimeout(()=>{ closeSheet(); if(G === tok) arenaResult(); }, 1100);
+}
+function arenaResult(){
+  const g = G, ranked = g.players.slice().sort(byScore), place = ranked.indexOf(g.me) + 1, today = dayKey();
+  const key = `${g.skillId}-${g.dur}`, prev = g.daily ? S.daily[today] : S.best[key], firstDaily = g.daily && prev == null;
+  const pb = g.score > 0 && (prev == null || g.score > prev);
+  if(pb){ if(g.daily) S.daily[today] = g.score; else S.best[key] = g.score; }
+  const rate = g.correct / g.dur, old = S.rate[g.skillId];
+  S.rate[g.skillId] = Math.max(.08, old ? old*.6 + rate*.4 : rate);
+  S.games++;
+  const res = grant(5 + Math.round(g.correct*1.5) + ([20,12,8][place-1] || 0) + (firstDaily ? 30 : 0), 10 + g.correct*4);
+  const tries = g.correct + g.wrong, acc = tries ? Math.round(g.correct/tries*100) : 0;
+  stop(); setChrome(false); window.scrollTo(0,0);
+  view.innerHTML = `<div class="result">
+    <h1>${place === 1 ? 'You won! 🏆' : `${ord(place)} place${place <= 3 ? '!' : ''}`}</h1>
+    <p class="muted">${g.correct} right in ${g.dur/60} minute${g.dur > 60 ? 's' : ''}. ${place === 1 ? 'Nobody was faster!' : place <= 3 ? 'You made the podium.' : 'Keep a streak going to climb higher.'}</p>
+    <div class="podium">${[1,0,2].map(i=>{ const p = ranked[i];
+      return `<div class="pod p${i+1} ${p.you?'you':''}">${charSVG(p.char, p.you ? 'class="bob"' : '')}<span class="nm">${p.name}</span><span class="muted">${p.score}</span><div class="blk">${i+1}</div></div>`; }).join('')}</div>
+    ${pb ? `<div class="badge">${g.daily ? 'Best daily score today!' : 'New personal best!'}</div>` : ''}
+    <div class="statgrid wide">
+      <div class="stat"><b>${g.score}</b><span>Points</span></div>
+      <div class="stat"><b>${g.correct}</b><span>Right</span></div>
+      <div class="stat"><b>${acc}%</b><span>Accuracy</span></div>
+      <div class="stat"><b>${g.bestStreak}</b><span>Best streak</span></div>
+    </div>
+    <div class="rewards"><span class="pill">🪙 +${res.coins}</span><span class="pill xpp">⚡ +${res.xp} XP</span></div>
+    ${res.up ? `<div class="lvlup">Level up! You're level ${S.level}</div>` : ''}
+    ${g.misses.length ? `<p class="muted">Practice these next time:</p><div class="review">${g.misses.slice(0, 8).map(m=>`<span>${m}</span>`).join('')}</div>` : ''}
+    <div class="stack" style="margin-top:6px;max-width:420px">
+      <button class="btn green" data-act="${g.daily ? 'daily' : 'arena-go'}" data-v="${g.skillId}">Play again</button>
+      <button class="btn ghost" data-act="arena">Back to arena</button>
+    </div></div>`;
+  if(place <= 3) confetti();
+}
+
 /* ================= crew ================= */
 function renderCrew(){
   stop(); tab = 'crew'; setChrome(true); renderTop(); markTab(); window.scrollTo(0,0);
@@ -710,6 +1003,9 @@ function renderCrew(){
       <div class="stat"><b>${doneCount}/${NODES.length}</b><span>Steps done</span></div>
       <div class="stat"><b>${totalStars()}</b><span>Stars</span></div>
       <div class="stat"><b>${S.coins}</b><span>Coins</span></div>
+      <div class="stat"><b>${S.games}</b><span>Arena games</span></div>
+      <div class="stat"><b>${Math.max(0, ...Object.values(S.best), ...Object.values(S.daily))}</b><span>Best score</span></div>
+      <div class="stat"><b>${dayStreak()}</b><span>Day streak</span></div>
     </div>
     <div class="crew">${Object.entries(CHARS).map(([id, c])=>{
       const own = S.owned.includes(id), sel = S.char === id;
@@ -723,7 +1019,7 @@ function renderCrew(){
 /* ================= events ================= */
 document.addEventListener('click', e=>{
   const tabBtn = e.target.closest('[data-tab]');
-  if(tabBtn){ tabBtn.dataset.tab === 'map' ? renderMap() : renderCrew(); return; }
+  if(tabBtn){ ({map:renderMap, arena:renderArena, crew:renderCrew})[tabBtn.dataset.tab](); return; }
   const node = e.target.closest('[data-node]');
   if(node){ openSheet(node.dataset.node); return; }
   const el = e.target.closest('[data-act]'); if(!el || el.disabled) return;
@@ -738,11 +1034,23 @@ document.addEventListener('click', e=>{
   if(a === 'pop') return popBalloon(el);
   if(a === 'race') return answerRace(el);
   if(a === 'boss') return answerBoss(el);
+  if(a === 'arena') return renderArena();
+  if(a === 'arena-go') return startArena(v);
+  if(a === 'daily') return startArena('mix', true);
+  if(a === 'dur'){ S.dur = +v; save(); return renderArena(); }
+  if(a === 'sound'){ S.sound = !S.sound; save(); return renderArena(); }
+  if(a === 'key') return arenaKey(v);
+  if(a === 'skip'){ if(G && G.kind === 'arena' && G.phase === 'play' && !G.busy) arenaMiss(false); return; }
   if(a === 'pickc'){ S.char = v; save(); return renderCrew(); }
   if(a === 'buyc'){ const c = CHARS[v]; if(S.coins < c.price) return;
     S.coins -= c.price; S.owned.push(v); S.char = v; save(); toast(`${c.name} joined your crew!`); return renderCrew(); }
 });
 document.addEventListener('keydown', e=>{
+  if(G && G.kind === 'arena'){
+    const k = /^[0-9]$/.test(e.key) ? e.key : e.key === 'Backspace' ? 'del' : e.key === 'Enter' ? 'ok' : null;
+    if(!k || (k === 'ok' && e.target.closest && e.target.closest('.x'))) return;
+    e.preventDefault(); return arenaKey(k);
+  }
   if(!G || !/^[1-4]$/.test(e.key)) return;
   const btn = view.querySelectorAll('.ans')[+e.key - 1];
   if(btn && !btn.disabled) btn.click();
