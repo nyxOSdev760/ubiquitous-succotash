@@ -397,6 +397,56 @@ sup{font-size:.6em}
 .review{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .review span{padding:7px 11px;border-radius:11px;font-weight:600;font-size:.88rem;background:var(--card);border:1px solid var(--line)}
 
+/* sign-in */
+.gsi{min-height:46px;display:flex;justify-content:center}
+.gbtn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:13px 20px;border-radius:999px;font-weight:700;font-size:1rem;color:#1f1f1f;background:#fff;border:1px solid #dadce0;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.gbtn:hover{background:#f7f8f8}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line2)}
+.acct{display:inline-flex;align-items:center;gap:10px;padding:6px 12px 6px 6px;border-radius:999px;background:var(--card2);font-size:.86rem;color:var(--muted);font-weight:600;max-width:100%}
+.acct img{width:28px;height:28px;border-radius:50%;flex:none}
+.acct span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acct b{color:var(--text)}
+
+/* avatars and market */
+.av.r-rare{box-shadow:0 0 0 2px #3b82f6}
+.av.r-epic{box-shadow:0 0 0 2px #a855f7,0 0 14px rgba(168,85,247,.55)}
+.av.r-legendary{box-shadow:0 0 0 2px #f59e0b,0 0 18px rgba(245,158,11,.6);animation:legend 2.4s ease-in-out infinite}
+@keyframes legend{50%{box-shadow:0 0 0 2px #fde047,0 0 26px rgba(253,224,71,.8)}}
+.odds{display:flex;flex-wrap:wrap;gap:6px}
+.odds span{padding:4px 9px;border-radius:8px;font-size:.74rem;font-weight:700;color:var(--rc);background:color-mix(in srgb,var(--rc),transparent 86%)}
+.boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.box{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 16px 16px;border-radius:22px;text-align:center;border:1px solid var(--line);
+  background:linear-gradient(170deg,color-mix(in srgb,var(--bc),transparent 72%),var(--card) 62%)}
+.box .bx{font-size:3.6rem;line-height:1.1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.3));transition:transform .2s}
+.box:hover .bx{transform:translateY(-4px) rotate(-5deg)}
+.box b{font-family:"Space Grotesk";font-size:1.2rem}
+.box small{color:var(--muted);font-weight:600}
+.peek{display:grid;grid-template-columns:repeat(9,1fr);gap:2px;width:100%;margin:4px 0 6px;font-size:1.05rem}
+.peek .q{display:grid;place-items:center;border-radius:6px;font-size:.7rem;font-weight:800;color:var(--muted);background:var(--card2)}
+.collhead{display:flex;align-items:baseline;justify-content:space-between;margin:16px 0 8px}
+.collhead small{color:var(--muted);font-weight:700}
+.coll{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
+.ci{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 4px;border-radius:16px;font-size:.76rem;font-weight:700;background:var(--card2);border:2px solid transparent}
+button.ci:hover{border-color:var(--line2)}
+.ci.on{border-color:var(--accent);background:var(--soft)}
+.ci .av{width:52px;height:52px;border-radius:16px;font-size:1.8rem}
+.ci small{font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rc)}
+.ci.lock .av{background:var(--card);box-shadow:none;color:var(--muted);font-family:"Space Grotesk";font-size:1.4rem}
+button.ci.lock .av span{filter:grayscale(1);opacity:.45}
+.ci small .ic{width:12px;height:12px;vertical-align:-2px}
+.ci.lock > span:nth-child(2){color:var(--muted)}
+.opening{display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px 0 10px}
+.opening .bx{font-size:5.5rem;line-height:1;animation:shakebox .45s ease-in-out infinite}
+.opening p{margin:0}
+@keyframes shakebox{25%{transform:rotate(-9deg) scale(1.06)}75%{transform:rotate(9deg) scale(1.06)}}
+.reveal{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;animation:popin .5s}
+.reveal .rays{position:absolute;top:-10px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--rc),transparent 45%),transparent 68%);pointer-events:none}
+.reveal .av{position:relative;width:112px;height:112px;margin-top:6px;border-radius:32px;font-size:4.2rem}
+.reveal h2{margin:2px 0 4px}
+.rlabel{margin-top:10px;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--rc)}
+.reveal .stack{width:100%}
+
 /* sheet, toast, confetti */
 .overlay{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,20,.6);backdrop-filter:blur(4px);animation:fade .2s}
 .sheet{width:100%;max-width:440px;padding:26px 22px;border-radius:24px;text-align:center;background:var(--card);border:1px solid var(--line2);animation:up .25s}
@@ -867,14 +917,49 @@ const unitPct = (g, ui) => { const items = pathItems(g).filter(x => x.ui === ui)
 const coursePct = g => { const items = pathItems(g); return Math.round(items.filter(passed).length/items.length*100); };
 
 /* ================= save ================= */
-const KEY = '100math-v3';
-const defaults = () => ({onboarded:false, name:'', grade:7, avatar:'🦊', theme:'indigo', themes:['indigo'], mode:'dark', sound:true,
+/* ================= avatars ================= */
+// collectible avatars come out of boxes bought with coins, Blooket style
+const RARITY = {common:{name:'Common', color:'#94a3b8', w:54, sell:5}, uncommon:{name:'Uncommon', color:'#22c55e', w:28, sell:10},
+  rare:{name:'Rare', color:'#3b82f6', w:12, sell:20}, epic:{name:'Epic', color:'#a855f7', w:5, sell:40}, legendary:{name:'Legendary', color:'#f59e0b', w:1, sell:100}};
+const PACKS = [
+  {id:'starter', name:'Starters', color:'#6d7cff', price:0, items:'cat Cat 🐱 c|dog Pup 🐶 c|panda Panda 🐼 c|frog Frog 🐸 c|bunny Bunny 🐰 c|penguin Penguin 🐧 c|koala Koala 🐨 c|tiger Tiger 🐯 c'},
+  {id:'snack', name:'Snack Box', icon:'🍩', color:'#f97316', price:20, items:'donut Donut 🍩 c|cookie Cookie 🍪 c|fries Fries 🍟 c|pizza Pizza 🍕 u|taco Taco 🌮 u|burger Burger 🍔 r|icecream Ice_Cream 🍦 r|cake Cake 🎂 e|boba Boba 🧋 l'},
+  {id:'safari', name:'Safari Box', icon:'🦁', color:'#eab308', price:25, items:'monkey Monkey 🐒 c|zebra Zebra 🦓 c|giraffe Giraffe 🦒 c|elephant Elephant 🐘 u|rhino Rhino 🦏 u|hippo Hippo 🦛 r|leopard Leopard 🐆 r|lion Lion 🦁 e|trex T-Rex 🦖 l'},
+  {id:'ocean', name:'Ocean Box', icon:'🐳', color:'#06b6d4', price:25, items:'fish Fish 🐟 c|crab Crab 🦀 c|shrimp Shrimp 🦐 c|puffer Puffer 🐡 u|turtle Turtle 🐢 u|octopus Octopus 🐙 r|dolphin Dolphin 🐬 r|shark Shark 🦈 e|whale Whale 🐳 l'},
+  {id:'space', name:'Space Box', icon:'🚀', color:'#6366f1', price:30, items:'rocket Rocket 🚀 c|moon Moon 🌙 c|star Star ⭐ c|planet Planet 🪐 u|comet Comet ☄️ u|satellite Satellite 🛰️ r|ufo UFO 🛸 r|alien Alien 👽 e|galaxy Galaxy 🌌 l'},
+  {id:'fantasy', name:'Fantasy Box', icon:'🔮', color:'#a855f7', price:35, items:'mushroom Mushroom 🍄 c|ghost Ghost 👻 c|owl Owl 🦉 c|fox Fox 🦊 u|wolf Wolf 🐺 u|fairy Fairy 🧚 r|unicorn Unicorn 🦄 r|dragon Dragon 🐉 e|wizard Wizard 🧙 l'}
+];
+const RCODE = {c:'common', u:'uncommon', r:'rare', e:'epic', l:'legendary'};
+PACKS.forEach(p => p.items = p.items.split('|').map(t => { const [id, name, e, rc] = t.split(' ');
+  return {id, name:name.replace('_', ' '), e, r:RCODE[rc], pack:p.id, color:p.color}; }));
+const AV = Object.fromEntries(PACKS.flatMap(p => p.items).map(a => [a.id, a]));
+const ALLAV = Object.values(AV);
+
+/* ================= accounts and saves ================= */
+// Paste the OAuth 2.0 Web client ID from Google Cloud Console here to switch on "Continue with Google".
+const GOOGLE_CLIENT_ID = '';
+// Each Google account gets its own save on this device; guests use the plain key, which also keeps older saves working.
+const GUEST_KEY = '100math-v3', WHO_KEY = '100math-who';
+const keyFor = who => who === 'guest' ? GUEST_KEY : `${GUEST_KEY}:${who}`;
+const store = {get:k => { try { return localStorage.getItem(k); } catch(e){ return null; } },
+  set:(k, v) => { try { localStorage.setItem(k, v); } catch(e){} }, del:k => { try { localStorage.removeItem(k); } catch(e){} }};
+const defaults = () => ({onboarded:false, name:'', grade:7, avatar:'cat', avatars:[], account:null, theme:'indigo', themes:['indigo'], mode:'dark', sound:true,
   coins:0, xp:0, level:1, done:{}, placed:{}, sk:{}, days:{}, best:{}, rate:{}, daily:{}, games:0, dur:60,
   dayStreak:0, lastDay:'', stats:{}, badges:{}, quests:null, trophies:0});
-let S = (() => { try { const d = JSON.parse(localStorage.getItem(KEY)); if(d) return Object.assign(defaults(), d); } catch(e){} return defaults(); })();
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
+function fixAvatars(d){
+  if(!AV[d.avatar]){ const m = ALLAV.find(a => a.e === d.avatar); d.avatar = m ? m.id : 'cat'; } // older saves stored an emoji
+  d.avatars = (d.avatars || []).filter(id => AV[id]);
+  if(!d.avatars.includes(d.avatar)) d.avatars.push(d.avatar);
+  return d;
+}
+function loadSave(who){ try { const d = who && JSON.parse(store.get(keyFor(who))); if(d) return fixAvatars(Object.assign(defaults(), d)); } catch(e){} return defaults(); }
+// 'none' means someone signed out on purpose; with no record at all, an older guest save is picked up automatically
+const whoRaw = store.get(WHO_KEY);
+let WHO = whoRaw === 'none' ? null : whoRaw || (store.get(GUEST_KEY) ? 'guest' : null);
+let S = loadSave(WHO);
+const save = () => { if(WHO) store.set(keyFor(WHO), JSON.stringify(S)); };
+function setWho(w){ WHO = w; store.set(WHO_KEY, w || 'none'); }
 const need = l => 100 + l*50;
-const AVATARS = ['🦊','🐼','🐯','🦉','🐺','🦁','🐨','🐸','🐙','🦈','🐲','🦖','👾','🤖','🛸','🚀','⚡','🔥','🌙','🎧','🎮','🏀','⚽','🎸'];
 const THEMES = {indigo:['Indigo','#6d7cff',0], ocean:['Ocean','#06b6d4',150], mint:['Mint','#10b981',150], violet:['Violet','#a855f7',200],
   sunset:['Sunset','#f97316',200], rose:['Rose','#f43f5e',250], gold:['Gold','#eab308',300]};
 function applyTheme(){
@@ -914,7 +999,8 @@ const QUESTS = [
   {id:'pod',  m:'podium',  n:1,  coins:25, icon:'medal',  text:'Finish a race in the top 3'},
   {id:'win',  m:'win',     n:1,  coins:30, icon:'trophy', text:'Win a Speed Arena race'},
   {id:'quiz', m:'quiz',    n:1,  coins:35, icon:'quiz',   text:'Pass a unit quiz'},
-  {id:'day',  m:'daily',   n:1,  coins:20, icon:'calendar', text:'Play the daily challenge'}
+  {id:'day',  m:'daily',   n:1,  coins:20, icon:'calendar', text:'Play the daily challenge'},
+  {id:'box',  m:'boxes',   n:1,  coins:15, icon:'gift',   text:'Open a box in the Market'}
 ];
 const QBY = Object.fromEntries(QUESTS.map(q => [q.id, q]));
 const MAXM = new Set(['streak']);
@@ -935,7 +1021,9 @@ const BADGES = [
   {id:'gold',  icon:'medal',    name:'Gold league',     desc:'Reach the Gold league',            ok:() => S.trophies >= 250},
   {id:'d3',    icon:'calendar', name:'Three-peat',      desc:'Practice 3 days in a row',         ok:() => S.dayStreak >= 3},
   {id:'d7',    icon:'calendar', name:'Week warrior',    desc:'Practice 7 days in a row',         ok:() => S.dayStreak >= 7},
-  {id:'q10',   icon:'gift',     name:'Quest hero',      desc:'Claim 10 daily quests',            ok:() => st('quests') >= 10}
+  {id:'q10',   icon:'gift',     name:'Quest hero',      desc:'Claim 10 daily quests',            ok:() => st('quests') >= 10},
+  {id:'col15', icon:'users',    name:'Collector',       desc:'Collect 15 avatars',               ok:() => S.avatars.length >= 15},
+  {id:'legend',icon:'sparkle',  name:'Legendary pull',  desc:'Unlock a Legendary avatar',        ok:() => S.avatars.some(id => AV[id].r === 'legendary')}
 ];
 const LEAGUES = [['Bronze',0,'#c2783f'],['Silver',100,'#8b97b5'],['Gold',250,'#d4a017'],['Emerald',450,'#10b981'],['Diamond',700,'#38bdf8'],['Champion',1000,'#e879f9']];
 const league = (t = S.trophies) => LEAGUES.reduce((i, l, j) => t >= l[1] ? j : i, 0);
@@ -984,8 +1072,8 @@ setInterval(() => {
 /* ================= shell ================= */
 let tab = 'home', G = null;
 const stop = () => { if(G) G.alive = false; G = null; };
-const NAV = [['home','home','Home'],['path','path','My Path'],['arena','zap','Arena'],['progress','chart','Progress'],['profile','user','Profile']];
-const avHTML = (emoji = S.avatar, cls = '', color) => `<span class="av ${cls}" ${color ? `style="--c:${color}"` : ''}>${emoji}</span>`;
+const NAV = [['home','home','Home'],['path','path','My Path'],['arena','zap','Arena'],['market','gift','Market'],['progress','chart','Progress'],['profile','user','Profile']];
+const avHTML = (id = S.avatar, cls = '') => { const a = AV[id] || AV.cat; return `<span class="av r-${a.r} ${cls}" style="--c:${a.color}" title="${a.name}">${a.e}</span>`; };
 function shell(){
   const dot = canClaim(), streak = dayStreak();
   const items = NAV.map(([id, icon, label]) => `<button class="navi ${tab === id ? 'on' : ''} ${id === 'home' && dot ? 'dot' : ''}" data-go="${id}">${ic(icon)}<span>${label}</span></button>`).join('');
@@ -1040,7 +1128,7 @@ const fmtMin = s => s < 60 ? `${s}s` : `${Math.floor(s/60)} min`;
 let OB = null;
 function renderOnboard(step='welcome'){
   enter('onboard', true);
-  OB = OB || {name:S.name, grade:S.grade, avatar:S.avatar}; OB.step = step;
+  OB = OB || {name:S.name, grade:S.grade, avatar:PACKS[0].items.some(a => a.id === S.avatar) ? S.avatar : 'cat'}; OB.step = step;
   const steps = ['name','course','avatar','check'], idx = steps.indexOf(step);
   const dots = idx < 0 ? '' : `<div class="onbdots">${steps.map((s, i) => `<i class="${i <= idx ? 'on' : ''}"></i>`).join('')}</div>`;
   const back = idx > 0 ? `<button class="iconbtn" data-act="ob" data-v="${steps[idx-1]}" aria-label="Back">${ic('back')}</button>` : '';
@@ -1053,17 +1141,21 @@ function renderOnboard(step='welcome'){
       <div class="feat"><span class="ri">${ic('path')}</span>Your own path through grades 6 to 12</div>
       <div class="feat"><span class="ri">${ic('zap')}</span>Speed Arena races, streaks and leagues</div>
     </div>
-    <button class="btn lg block" data-act="ob" data-v="name">Get started ${ic('arrow')}</button>`;
-  if(step === 'name') body = `<div class="eyebrow">Step 1 of 4</div><h1>What should we call you?</h1>
+    <div id="gsi" class="gsi"></div>
+    <div class="or"><span>or</span></div>
+    <button class="btn ghost lg block" data-act="guest">Play as a guest</button>
+    <p class="note" style="text-align:center">Guest progress stays in this browser only. Sign in with Google to keep it under your account.</p>`;
+  if(step === 'name') body = `<div class="eyebrow">Step 1 of 4</div>${S.account ? acctChip() : ''}<h1>What should we call you?</h1>
     <input class="field" id="obname" maxlength="18" placeholder="First name or nickname" autocomplete="off" value="${esc(OB.name)}">
-    <p class="note">Other players only see this name in Speed Arena races on your own device. Nothing leaves this browser.</p>
+    <p class="note">Shown on your dashboard and in Speed Arena races. Your progress is saved in this browser.</p>
     <button class="btn lg block" id="obnext" data-act="ob" data-v="course" ${OB.name.trim() ? '' : 'disabled'}>Continue</button>`;
   if(step === 'course') body = `<div class="eyebrow">Step 2 of 4</div><h1>Which course are you in?</h1>
     <div class="courses">${Object.entries(COURSES).map(([g, c]) => `<button class="course ${OB.grade === +g ? 'on' : ''}" data-act="ob-course" data-v="${g}"><span class="cn">${c.short}</span><span><b>${c.name}</b><small>${COURSE_SUB[g]}</small></span></button>`).join('')}</div>
     <button class="btn lg block" data-act="ob" data-v="avatar">Continue</button>`;
-  if(step === 'avatar') body = `<div class="eyebrow">Step 3 of 4</div><h1>Pick an avatar</h1>
-    <div style="display:flex;align-items:center;gap:14px">${avHTML(OB.avatar, 'lg')}<div><b style="font-size:1.2rem">${esc(OB.name)}</b><p class="note">${COURSES[OB.grade].name}</p></div></div>
-    <div class="avgrid">${AVATARS.map(a => `<button class="avpick ${OB.avatar === a ? 'on' : ''}" data-act="ob-av" data-v="${a}">${a}</button>`).join('')}</div>
+  if(step === 'avatar') body = `<div class="eyebrow">Step 3 of 4</div><h1>Pick your starter avatar</h1>
+    <p class="lead">Earn coins in lessons and races, then open boxes in the Market to collect ${ALLAV.length - 8} more, from Common all the way to Legendary.</p>
+    <div style="display:flex;align-items:center;gap:14px">${avHTML(OB.avatar, 'lg')}<div><b style="font-size:1.2rem">${esc(OB.name)}</b><p class="note">${AV[OB.avatar].name} · ${COURSES[OB.grade].name}</p></div></div>
+    <div class="avgrid">${PACKS[0].items.map(a => `<button class="avpick ${OB.avatar === a.id ? 'on' : ''}" data-act="ob-av" data-v="${a.id}" aria-label="${a.name}">${a.e}</button>`).join('')}</div>
     <button class="btn lg block" data-act="ob" data-v="check">Continue</button>`;
   if(step === 'check') body = `<div class="eyebrow">Step 4 of 4</div><h1>Let's find your starting point</h1>
     <p class="lead">Answer 8 quick questions from ${COURSES[OB.grade].name}. It isn't graded. If you already know a unit, you'll skip straight past it.</p>
@@ -1075,6 +1167,7 @@ function renderOnboard(step='welcome'){
     <button class="btn ghost block" data-act="ob-finish" data-v="skip">Skip for now</button>`;
   view.innerHTML = `<div class="onb"><div class="onbcard">${back || dots ? `<div style="display:flex;align-items:center;gap:14px">${back}${dots}</div>` : ''}${body}</div></div>`;
   if(step === 'name') setTimeout(() => { const i = $('#obname'); if(i){ i.focus(); i.setSelectionRange(i.value.length, i.value.length); } }, 50);
+  if(step === 'welcome') mountGoogle();
 }
 function obGo(step){
   if(OB.step === 'name'){ OB.name = $('#obname').value.trim(); if(!OB.name) return; }
@@ -1083,9 +1176,114 @@ function obGo(step){
 function obFinish(how){
   const fresh = !S.onboarded;
   Object.assign(S, {name:OB.name, grade:OB.grade, avatar:OB.avatar, onboarded:true});
+  if(!S.avatars.includes(OB.avatar)) S.avatars.push(OB.avatar);
   save(); OB = null;
   if(how === 'check') return startDiag();
   renderHome(); if(fresh) toast(`Welcome, ${S.name}! Your path is ready.`);
+}
+
+/* ================= google sign-in ================= */
+const G_LOGO = '<svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
+const acctChip = () => `<div class="acct">${S.account.picture ? `<img src="${esc(S.account.picture)}" alt="" referrerpolicy="no-referrer">` : ''}<span>Signed in as <b>${esc(S.account.email)}</b></span></div>`;
+// shows Google's own button when a client ID is set; otherwise a look-alike that explains sign-in is not switched on yet
+function mountGoogle(){
+  const el = $('#gsi'); if(!el) return;
+  el.innerHTML = `<button class="gbtn" data-act="google-off">${G_LOGO}<span>Continue with Google</span></button>`;
+  if(!GOOGLE_CLIENT_ID) return;
+  const draw = () => {
+    const box = $('#gsi'); if(!box || !(window.google && google.accounts && google.accounts.id)) return;
+    google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID, callback:googleSignedIn, context:'signup', ux_mode:'popup'});
+    box.innerHTML = '';
+    google.accounts.id.renderButton(box, {type:'standard', theme: S.mode === 'light' ? 'outline' : 'filled_black', size:'large', shape:'pill', text:'continue_with', width:Math.min(400, box.clientWidth || 320)});
+  };
+  if(window.google && google.accounts && google.accounts.id) return draw();
+  let tag = document.querySelector('script[data-gsi]');
+  if(!tag){ tag = document.createElement('script'); tag.src = 'https://accounts.google.com/gsi/client'; tag.async = true; tag.dataset.gsi = '1';
+    tag.onerror = () => toast("Couldn't reach Google. Check your connection or play as a guest."); document.head.appendChild(tag); }
+  tag.addEventListener('load', draw);
+}
+function googleSignedIn(resp){
+  let p;
+  try { const b = resp.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'); p = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b), c => c.charCodeAt(0)))); }
+  catch(e){ return toast('Google sign-in did not work. Please try again.'); }
+  const who = 'g:' + p.sub, guest = store.get(GUEST_KEY);
+  let moved = false;
+  if(store.get(keyFor(who))) S = loadSave(who);
+  else {
+    // first sign-in on this device: bring along any guest progress so nothing is lost
+    S = defaults();
+    try { const d = guest && JSON.parse(guest); if(d && d.onboarded){ S = fixAvatars(Object.assign(defaults(), d)); store.del(GUEST_KEY); moved = true; } } catch(e){}
+  }
+  S.account = {email:p.email || '', picture:p.picture || '', name:p.name || ''};
+  if(!S.name) S.name = p.given_name || p.name || '';
+  setWho(who); save(); applyTheme(); OB = null;
+  if(!S.onboarded) return renderOnboard('name');
+  RET = 'home'; renderHome();
+  toast(moved ? 'Signed in. Your guest progress is now saved to your account.' : `Welcome back, ${S.name}!`);
+}
+function playGuest(){
+  setWho('guest'); S = loadSave('guest'); applyTheme(); OB = null;
+  S.onboarded ? renderHome() : renderOnboard('name');
+}
+function signOut(){
+  if(window.google && google.accounts && google.accounts.id) google.accounts.id.disableAutoSelect();
+  setWho(null); S = defaults(); OB = null; applyTheme(); renderOnboard('welcome');
+}
+
+/* ================= market ================= */
+const STARTER_PRICE = 15; // starters aren't in any box, so the ones a student didn't pick can be bought directly
+function collectionHTML(){
+  return PACKS.map(p => `<div class="collhead"><b>${p.name}</b><small>${p.items.filter(a => S.avatars.includes(a.id)).length}/${p.items.length}</small></div>
+    <div class="coll">${p.items.map(a => { const own = S.avatars.includes(a.id), rr = RARITY[a.r];
+      return own ? `<button class="ci ${S.avatar === a.id ? 'on' : ''}" style="--rc:${rr.color}" data-act="equip" data-v="${a.id}">${avHTML(a.id)}<span>${a.name}</span><small>${S.avatar === a.id ? 'Equipped' : rr.name}</small></button>`
+        : p.id === 'starter' ? `<button class="ci lock" style="--rc:${rr.color}" data-act="buy-starter" data-v="${a.id}"><span class="av"><span>${a.e}</span></span><span>${a.name}</span><small>${ic('coin')}${STARTER_PRICE}</small></button>`
+        : `<div class="ci lock" style="--rc:${rr.color}"><span class="av"><span>?</span></span><span>???</span><small>${rr.name}</small></div>`; }).join('')}</div>`).join('');
+}
+function renderMarket(){
+  enter('market');
+  view.innerHTML = `<div class="wrap">
+    <div class="pagehead"><div><div class="eyebrow">Market</div><h1>Collect avatars</h1><p>Spend coins on boxes. Every box holds 9 avatars. Duplicates are sold back for coins automatically.</p></div>
+      <span class="chip gold" style="font-size:1rem;padding:10px 16px">${ic('coin')}${S.coins}</span></div>
+    <div class="odds" style="margin-bottom:18px">${Object.values(RARITY).map(rr => `<span style="--rc:${rr.color}">${rr.name} ${rr.w}%</span>`).join('')}</div>
+    <div class="boxes">${PACKS.filter(p => p.price).map(p => { const have = p.items.filter(a => S.avatars.includes(a.id)).length;
+      return `<div class="box" style="--bc:${p.color}"><span class="bx">${p.icon}</span><b>${p.name}</b><small>${have} of ${p.items.length} collected</small>
+        <div class="peek">${p.items.map(a => S.avatars.includes(a.id) ? `<span title="${a.name}">${a.e}</span>` : '<span class="q">?</span>').join('')}</div>
+        <button class="btn block" data-act="openbox" data-v="${p.id}" ${S.coins < p.price ? 'disabled' : ''}>${ic('coin')} ${p.price} · Open</button></div>`; }).join('')}</div>
+    <div class="card" style="margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">${avHTML(S.avatar, 'lg')}
+      <div style="flex:1;min-width:180px"><b style="font-size:1.1rem">Your collection: ${S.avatars.length} of ${ALLAV.length}</b><p class="muted" style="font-weight:500;margin-top:2px">Equip any avatar you own from your profile.</p></div>
+      <button class="btn ghost" data-go="profile">${ic('user')} Change avatar</button></div></div>`;
+}
+function openBox(id){
+  const p = PACKS.find(x => x.id === id); if(!p || !p.price) return;
+  if(S.coins < p.price) return toast(`You need ${p.price - S.coins} more coins for the ${p.name}.`);
+  S.coins -= p.price;
+  let roll = Math.random()*100, rar = 'common';
+  for(const [k, rr] of Object.entries(RARITY)){ if(roll < rr.w){ rar = k; break; } roll -= rr.w; }
+  const pool = p.items.filter(a => a.r === rar), a = pool[Math.floor(Math.random()*pool.length)], dupe = S.avatars.includes(a.id), rr = RARITY[a.r];
+  if(dupe) S.coins += rr.sell; else S.avatars.push(a.id);
+  track('boxes'); save();
+  if(tab === 'market') renderMarket();
+  $('#sheet').innerHTML = `<div class="overlay"><div class="sheet" role="dialog" aria-label="${p.name}">
+    <div class="opening" id="opening"><span class="bx">${p.icon}</span><p>Opening the ${p.name}…</p></div>
+    <div class="reveal" id="reveal" hidden style="--rc:${rr.color}">
+      <div class="rays"></div>${avHTML(a.id)}<span class="rlabel">${rr.name}</span><h2>${a.name}</h2>
+      <p>${dupe ? `You already have ${a.name}, so it was sold for <b>${rr.sell} coins</b>.` : 'New avatar unlocked!'}</p>
+      <div class="stack">${dupe ? '' : `<button class="btn" data-act="equip" data-v="${a.id}">Equip ${a.name}</button>`}
+        ${S.coins >= p.price ? `<button class="btn ${dupe ? '' : 'ghost'}" data-act="openbox" data-v="${p.id}">${ic('coin')} ${p.price} · Open another</button>` : ''}
+        <button class="btn ghost" data-act="close">Done</button></div></div></div></div>`;
+  beep(300, .6, 'triangle', .04);
+  setTimeout(() => {
+    const o = $('#opening'), rv = $('#reveal'); if(!o || !rv) return;
+    o.remove(); rv.hidden = false;
+    const big = a.r === 'legendary' || a.r === 'epic';
+    beep(big ? 880 : 660, .15); setTimeout(() => beep(big ? 1320 : 990, .3, 'triangle'), 130);
+    if(big) confetti();
+  }, 1200);
+}
+function equip(id){
+  if(!S.avatars.includes(id)) return;
+  S.avatar = id; save(); closeSheet(); toast(`${AV[id].name} equipped.`);
+  tab === 'profile' ? renderProfile() : tab === 'market' ? renderMarket() : shell();
 }
 
 /* ================= home ================= */
@@ -1399,7 +1597,12 @@ function renderProfile(){
       <div class="col">
         <div class="card prof">${avHTML(S.avatar, 'lg')}<div style="flex:1;min-width:180px"><h2>${esc(S.name)}</h2><p class="muted" style="font-weight:600;margin-top:2px">${COURSES[S.grade].name} · Level ${S.level} · ${LEAGUES[li][0]} league</p>
           <div class="bar" style="margin-top:10px;max-width:260px"><i style="width:${S.xp/need(S.level)*100}%"></i></div><small class="muted" style="font-weight:600">${S.xp} / ${need(S.level)} XP to level ${S.level + 1}</small></div></div>
-        <div class="card"><div class="cardhead"><h2>Avatar</h2></div><div class="avgrid">${AVATARS.map(a => `<button class="avpick ${S.avatar === a ? 'on' : ''}" data-act="set-av" data-v="${a}">${a}</button>`).join('')}</div></div>
+        <div class="card"><div class="cardhead"><h2>Account</h2></div>
+          ${S.account ? `${acctChip()}<div style="display:flex;gap:8px;margin-top:14px"><button class="btn ghost sm" data-act="signout">Sign out</button></div>`
+            : `<p class="muted" style="font-weight:500;margin-bottom:14px">You're playing as a guest. Sign in with Google to save your progress to your account; everything you've earned comes with you.</p><div id="gsi" class="gsi"></div>
+               <div style="margin-top:10px"><button class="btn ghost sm" data-act="signout">Leave guest mode</button></div>`}</div>
+        <div class="card"><div class="cardhead"><h2>Your avatars</h2><a data-go="market">Open boxes ${ic('arrow')}</a></div>
+          <p class="muted" style="font-weight:500;margin:-6px 0 6px">Tap any avatar you own to equip it. ${S.avatars.length} of ${ALLAV.length} collected.</p>${collectionHTML()}</div>
         <div class="card"><div class="cardhead"><h2>Theme color</h2><span class="chip gold">${ic('coin')}${S.coins}</span></div>
           <div class="swatches">${Object.entries(THEMES).map(([id, [name, c, price]]) => { const own = S.themes.includes(id);
             return `<button class="sw ${S.theme === id ? 'on' : ''}" style="--sc:${c}" data-act="theme" data-v="${id}"><i></i><b>${name}</b><small>${S.theme === id ? 'In use' : own ? 'Owned' : `${ic('coin')}${price}`}</small></button>`; }).join('')}</div></div>
@@ -1414,15 +1617,15 @@ function renderProfile(){
             <button class="${S.sound ? 'on' : ''}" data-act="sound" data-v="1">On</button><button class="${S.sound ? '' : 'on'}" data-act="sound" data-v="0">Off</button></div></div>
           <div class="setrow"><div><b>Course</b><small>${COURSES[S.grade].name}</small></div><button class="btn ghost sm" data-go="path">Change</button></div>
           <div class="setrow"><div><b>Placement check-in</b><small>Skip units you already know</small></div><button class="btn ghost sm" data-act="diag">Retake</button></div>
-          <div class="setrow"><div><b>Reset progress</b><small>Start over from scratch on this device</small></div><button class="btn ghost sm" data-act="reset" style="color:var(--bad)">Reset</button></div>
+          <div class="setrow"><div><b>Reset progress</b><small>Start over from scratch on this device${S.account ? ' for this account' : ''}</small></div><button class="btn ghost sm" data-act="reset" style="color:var(--bad)">Reset</button></div>
         </div>
       </div>
     </div></div>`;
+  if(!S.account) mountGoogle();
 }
 
 /* ================= speed arena ================= */
 const BOTS = ['Maya','Leo','Aria','Kai','Zoe','Omar','Ivy','Theo','Nina','Ravi','Luca','Mila','Sam','Yuki','Ada','Finn','Jade','Eli','Noor','Max'];
-const BOT_COLORS = ['#6d7cff','#06b6d4','#10b981','#a855f7','#f97316','#f43f5e','#eab308'];
 const comboMult = s => s >= 10 ? 3 : s >= 5 ? 2 : 1;
 const speedBonus = t => Math.max(0, Math.min(50, Math.round(62 - t*6)));
 const byScore = (a, b) => b.score - a.score || (a.you ? -1 : b.you ? 1 : 0);
@@ -1451,14 +1654,14 @@ function startArena(poolId, daily=false){
   // rivals are paced around this player's own past speed, so races stay close
   const players = [{you:true, name:S.name, av:S.avatar, color:null, score:0}].concat(shuffle(BOTS.slice()).slice(0, 5).map((name, i) => {
     const gap = Math.max(1.4, 1/(rate*factors[i])), first = gap*(.6 + Math.random()*.8) + .6;
-    return {name, av:AVATARS[Math.floor(Math.random()*AVATARS.length)], color:BOT_COLORS[i % BOT_COLORS.length], score:0, streak:0, gap, acc:.78 + Math.random()*.18, cur:first, next:first};
+    return {name, av:ALLAV[Math.floor(Math.random()*ALLAV.length)].id, score:0, streak:0, gap, acc:.78 + Math.random()*.18, cur:first, next:first};
   }));
   G = {kind:'arena', alive:true, phase:'lobby', pool, poolId, rkey, daily, dur, left:dur, players, me:players[0], score:0, correct:0, wrong:0, streak:0, bestStreak:0, typed:'', misses:[],
     rng: daily ? seeded(hash(`daily-${S.grade}-${dayKey()}`)) : null};
   view.innerHTML = `<div class="lobby"><div class="eyebrow">${daily ? 'Daily challenge' : 'Speed Arena'}</div><h1>${daily ? 'Mixed review' : pool.name}</h1><p id="lob">Finding players…</p><div class="joined" id="joined"></div><div class="count" id="cd"></div></div>`;
   const tok = G;
   players.forEach((p, i) => setTimeout(() => { if(G !== tok) return;
-    $('#joined').insertAdjacentHTML('beforeend', `<div class="pl ${p.you ? 'you' : ''}">${avHTML(p.av, '', p.color)}${esc(p.name)}</div>`); beep(520 + i*60, .06); }, i*360));
+    $('#joined').insertAdjacentHTML('beforeend', `<div class="pl ${p.you ? 'you' : ''}">${avHTML(p.av)}${esc(p.name)}</div>`); beep(520 + i*60, .06); }, i*360));
   setTimeout(() => { if(G === tok) countdown(3); }, players.length*360 + 400);
 }
 function countdown(n){
@@ -1474,7 +1677,7 @@ function arenaPlay(){
     <div class="hud"><button class="iconbtn" data-act="arena" aria-label="Leave">${ic('x')}</button>
       <div class="hudscore"><b id="sc">0</b><span>points</span></div>
       <div class="timer" id="timer"><svg viewBox="0 0 44 44"><circle class="trk" cx="22" cy="22" r="19"/><circle id="tm" cx="22" cy="22" r="19"/></svg><span id="secs">${G.dur}</span></div></div>
-    <div class="board" id="board" style="--n:${G.players.length}">${G.players.map(p => `<div class="lb ${p.you ? 'you' : ''}"><span class="rk"></span>${avHTML(p.av, '', p.color)}<span class="nm">${esc(p.name)}</span><span class="pt">0</span></div>`).join('')}</div>
+    <div class="board" id="board" style="--n:${G.players.length}">${G.players.map(p => `<div class="lb ${p.you ? 'you' : ''}"><span class="rk"></span>${avHTML(p.av)}<span class="nm">${esc(p.name)}</span><span class="pt">0</span></div>`).join('')}</div>
     <div class="qcard liveq" id="lqc"><span class="combo" id="combo" hidden></span><div class="prompt" id="lp"></div><div class="q" id="lq"></div>
       <div class="ansrow"><span class="affix" id="lpre"></span><div class="ans" id="ans"></div><span class="affix" id="lunit"></span></div>
       <div class="hint-line" id="hint"></div><button class="skip" data-act="skip">Skip</button></div>
@@ -1572,7 +1775,7 @@ function arenaResult(){
     <h1>${place === 1 ? 'You won!' : `${ord(place)} place`}</h1>
     <p>${g.correct} correct in ${g.dur/60} minute${g.dur > 60 ? 's' : ''}. ${place === 1 ? 'Nobody was faster.' : place <= 3 ? 'You made the podium.' : 'Build a streak to climb higher.'}</p>
     <div class="podium">${[1,0,2].map(i => { const p = ranked[i];
-      return `<div class="pod p${i + 1} ${p.you ? 'you' : ''}">${avHTML(p.av, '', p.color)}<span class="nm">${esc(p.name)}</span><span class="muted">${p.score}</span><div class="blk">${i + 1}</div></div>`; }).join('')}</div>
+      return `<div class="pod p${i + 1} ${p.you ? 'you' : ''}">${avHTML(p.av)}<span class="nm">${esc(p.name)}</span><span class="muted">${p.score}</span><div class="blk">${i + 1}</div></div>`; }).join('')}</div>
     ${pb ? `<span class="chip gold">${ic('star')} ${g.daily ? 'Best daily score today' : 'New personal best'}</span>` : ''}
     <div class="statrow" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="stat"><b>${g.score}</b><span>Points</span></div><div class="stat"><b>${g.correct}</b><span>Correct</span></div>
       <div class="stat"><b>${acc}%</b><span>Accuracy</span></div><div class="stat"><b>${g.bestStreak}</b><span>Best streak</span></div></div>
@@ -1612,7 +1815,7 @@ function setTheme(id){
 }
 
 /* ================= events ================= */
-const PAGES = {home:renderHome, path:renderPath, arena:renderArena, progress:renderProgress, profile:renderProfile};
+const PAGES = {home:renderHome, path:renderPath, arena:renderArena, market:renderMarket, progress:renderProgress, profile:renderProfile};
 function goTab(t){ RET = t; if(t === 'path') pathGrade = null; PAGES[t](); }
 document.addEventListener('click', e => {
   const go = e.target.closest('[data-go]');
@@ -1642,7 +1845,15 @@ document.addEventListener('click', e => {
   if(a === 'daily') return startArena('mix', true);
   if(a === 'dur'){ S.dur = +v; save(); return renderArena(); }
   if(a === 'skip'){ if(G && G.kind === 'arena' && G.phase === 'play' && !G.busy) arenaMiss(false); return; }
-  if(a === 'set-av'){ S.avatar = v; save(); return renderProfile(); }
+  if(a === 'guest'){ closeSheet(); return playGuest(); }
+  if(a === 'signout') return signOut();
+  if(a === 'google-off') return sheet(`<div class="big">🔑</div><h2>Google sign-in is almost ready</h2><p>Signing in with Google hasn't been switched on for this site yet. You can play as a guest for now, and your progress will move to your account when you sign in later.</p>
+    <div class="stack"><button class="btn" data-act="guest">Play as a guest</button><button class="btn ghost" data-act="close">Close</button></div>`);
+  if(a === 'openbox'){ closeSheet(); return openBox(v); }
+  if(a === 'equip') return equip(v);
+  if(a === 'buy-starter'){ if(!AV[v] || AV[v].pack !== 'starter' || S.avatars.includes(v)) return;
+    if(S.coins < STARTER_PRICE) return toast(`You need ${STARTER_PRICE - S.coins} more coins.`);
+    S.coins -= STARTER_PRICE; S.avatars.push(v); checkBadges(); save(); return equip(v); }
   if(a === 'theme') return setTheme(v);
   if(a === 'mode'){ S.mode = v; save(); applyTheme(); return renderProfile(); }
   if(a === 'sound'){ S.sound = v === '1'; save(); return renderProfile(); }
@@ -1650,7 +1861,7 @@ document.addEventListener('click', e => {
   if(a === 'diag') return startDiag();
   if(a === 'reset') return sheet(`<div class="big">⚠️</div><h2>Reset everything?</h2><p>This erases your path, scores, coins and badges on this device. It can't be undone.</p>
     <div class="stack"><button class="btn" style="background:var(--bad);box-shadow:none;color:#fff" data-act="reset-yes">Yes, reset</button><button class="btn ghost" data-act="close">Cancel</button></div>`);
-  if(a === 'reset-yes'){ localStorage.removeItem(KEY); S = defaults(); closeSheet(); applyTheme(); return renderOnboard(); }
+  if(a === 'reset-yes'){ const acct = S.account; store.del(keyFor(WHO)); S = defaults(); S.account = acct; if(acct) S.name = acct.name.split(' ')[0]; save(); closeSheet(); applyTheme(); OB = null; return renderOnboard(WHO ? 'name' : 'welcome'); }
 });
 document.addEventListener('input', e => {
   if(e.target.id === 'obname'){ OB.name = e.target.value; $('#obnext').disabled = !e.target.value.trim(); }
@@ -1669,7 +1880,7 @@ document.addEventListener('keydown', e => {
 const dayNum = k => k.split('-').reduce((a, v) => a*100 + +v, 0);
 Object.keys(S.days).sort((a, b) => dayNum(b) - dayNum(a)).slice(60).forEach(k => delete S.days[k]);
 applyTheme();
-S.onboarded ? renderHome() : renderOnboard();
+WHO && S.onboarded ? renderHome() : renderOnboard(WHO ? 'name' : 'welcome');
 </script>
 </body>
 </html>
